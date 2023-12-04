@@ -37,8 +37,21 @@ public class PQC_functional_test extends UtilBase {
 	P 		API name    				screen					modal			test case description
 	----------------------------------------------------------------------------------------------------------
 			quickContactSearch       	create customer RFQ     x	  
-			createCustomerRFQ			create customer RFQ		x				
-	
+			createCustomerRFQ			create customer RFQ		x	
+			getRFQHeader				processRFQ
+			getCustomers				processRFQ
+			getCustomerContacts			processRFQ
+			changeRFQOwner				processRFQ			
+			getCustomerInformation		processRFQ
+			getPartInformation			processRFQ
+			getRFQPartStockInfo			processRFQ
+			getIncomingGood
+			getLotDetails
+			addPart
+			getRFQLines
+			getKitPartDetails
+			getRFQLineAlternates
+			deleteRFQLines
 	----------------------------------------------------------------------------------------------------------
 	TO DO: 
 	Rename all @Test Methods with associated APIs
@@ -106,7 +119,7 @@ public class PQC_functional_test extends UtilBase {
 
 //			Run the Test
 			boolean result = WebElementLib.doesElementExist(pqc_po.navbar_caseQueue());
-			
+
 			if (result) {
 				logger.info("SUCCESS : PQC Login Test PASSED");
 				test.pass("Login successful");
@@ -126,7 +139,6 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	
 	/*
 	 * Search contact, Create Customer RFQ page
 	 */
@@ -176,11 +188,13 @@ public class PQC_functional_test extends UtilBase {
 				logger.warning("ERROR : search contact test FAILED");
 				test.fail("quickContactSearch test");
 				test.addScreenCaptureFromPath(capture("quickContactSearch_failed"), "quickContactSearch");
+				Assert.assertTrue(false);
 			}
 			logger.info("END : Search customer test ----------------------------------------");
 		} catch (Exception e) {
 			logger.info("ERROR :: quickSearchContact_test");
 			e.printStackTrace();
+			Assert.assertTrue(false);
 		}
 	}
 
@@ -234,11 +248,13 @@ public class PQC_functional_test extends UtilBase {
 				logger.severe("ERROR : create customer RFQ");
 				test.fail("create customer RFQ");
 				test.addScreenCaptureFromPath(capture("createRFQ"), "create customer RFQ");
+				Assert.assertTrue(false);
 			}
 			logger.info("END : create customer RFQ test ---------------------------------------");
 		} catch (Exception e) {
 			logger.info("ERROR :: createCustomerRFQ");
 			e.printStackTrace();
+			Assert.assertTrue(false);
 		}
 	}
 
@@ -307,16 +323,19 @@ public class PQC_functional_test extends UtilBase {
 				logger.info("SUCCESS : get RFQ Header pass");
 				test.pass("get RFQ Header");
 				test.addScreenCaptureFromPath(capture("rfqHeader"), "get RFQ Header");
+
 			} else {
 				logger.info("ERROR : get RFQ Header verification Failed");
 				test.fail("get RFQ Header");
 				test.addScreenCaptureFromPath(capture("rfqHeader"), "get RFQ Header");
+				Assert.assertTrue(false);
 			}
 			logger.info("END : get RFQ Header test -----------------------------------------");
 
 		} catch (Exception e) {
 			logger.severe("ERROR :: getRFQHeader_test");
 			e.printStackTrace();
+			Assert.assertTrue(false);
 		}
 	}
 
@@ -356,6 +375,7 @@ public class PQC_functional_test extends UtilBase {
 				logger.info("ERROR : getCustomers_test ");
 				test.fail("getCustomers_test");
 				test.addScreenCaptureFromPath(capture("getCustomers_test_failed"), "getCustomers_test");
+				Assert.assertTrue(false);
 			}
 //			clean up
 			Thread.sleep(1000);
@@ -366,6 +386,7 @@ public class PQC_functional_test extends UtilBase {
 			test.fail("getCustomers_test");
 			test.addScreenCaptureFromPath(capture("getCustomers_test_failed"), "getCustomers_test");
 			e.printStackTrace();
+			Assert.assertTrue(false);
 		}
 	}
 
@@ -405,6 +426,7 @@ public class PQC_functional_test extends UtilBase {
 				logger.info("ERROR : getCustomerContacts_test ");
 				test.fail("getCustomerContacts_test");
 				test.addScreenCaptureFromPath(capture("getCustomerContacts_test_failed"), "getCustomerContacts_test");
+				Assert.assertTrue(false);
 			}
 //			clean up
 			Thread.sleep(1000);
@@ -416,6 +438,7 @@ public class PQC_functional_test extends UtilBase {
 			test.fail("getCustomerContacts_test");
 			test.addScreenCaptureFromPath(capture("getCustomerContacts_failed"), "getCustomerContacts_test");
 			e.printStackTrace();
+			Assert.assertTrue(false);
 		}
 	}
 
@@ -461,6 +484,7 @@ public class PQC_functional_test extends UtilBase {
 				logger.info("ERROR : changeRFQOwner_test ");
 				test.fail("changeRFQOwner_test");
 				test.addScreenCaptureFromPath(capture("changeRFQOwner_test_failed"), "changeRFQOwner_test");
+				Assert.assertTrue(false);
 			}
 			logger.info("END : changeRFQOwner_test---------------------------------------");
 		} catch (Exception e) {
@@ -468,6 +492,7 @@ public class PQC_functional_test extends UtilBase {
 			test.fail("changeRFQOwner_test");
 			test.addScreenCaptureFromPath(capture("changeRFQOwner_test_failed"), "changeRFQOwner_test");
 			e.printStackTrace();
+			Assert.assertTrue(false);
 		}
 	}
 
@@ -567,6 +592,7 @@ public class PQC_functional_test extends UtilBase {
 				logger.warning("ERROR : getCustomerInformation test");
 				test.fail("getCustomerInformation test");
 				test.addScreenCaptureFromPath(capture("getCustomerInformation_failed"), "getCustomerInformation test");
+				Assert.assertTrue(false);
 			}
 			pqc_po.getCustomerInformation_button().click();
 			Thread.sleep(2000);
@@ -574,6 +600,7 @@ public class PQC_functional_test extends UtilBase {
 		} catch (Exception e) {
 			logger.severe("ERROR :: getCustomerInformation");
 			e.printStackTrace();
+			Assert.assertTrue(false);
 		}
 	}
 
@@ -625,11 +652,11 @@ public class PQC_functional_test extends UtilBase {
 // Use JavaScriptExecutor to scroll the element into view
 				jsDriver.executeScript("arguments[0].scrollIntoView({block: 'center'});", pqc_po.salesPrice_table());
 				Thread.sleep(2000);
-				test.addScreenCaptureFromPath(capture("getPartInformation_success"), "getPartInformation test");
+				test.addScreenCaptureFromPath(capture("getPartInformation_success"), "getPartInformation test");Assert.assertTrue(false);
 			} else {
 				logger.info("ERROR : getPartInformation test");
 				test.fail("getPartInformation");
-				test.addScreenCaptureFromPath(capture("getPartInformation_failed"), "getPartInformation test");
+				test.addScreenCaptureFromPath(capture("getPartInformation_failed"), "getPartInformation test");Assert.assertTrue(false);
 			}
 //			Clean up
 			jsDriver.executeScript("arguments[0].scrollIntoView({block: 'center'});", pqc_po.getPartInformation_link(row));
@@ -673,7 +700,7 @@ public class PQC_functional_test extends UtilBase {
 			} else {
 				logger.info("ERROR : getRFQPartStockInfo_test ");
 				test.fail("getRFQPartStockInfo_test");
-				test.addScreenCaptureFromPath(capture("getRFQPartStockInfo_test_failed"), "getRFQPartStockInfo_test");
+				test.addScreenCaptureFromPath(capture("getRFQPartStockInfo_test_failed"), "getRFQPartStockInfo_test");Assert.assertTrue(false);
 			}
 //			Close the modal
 			pqc_po.getRFQPartStockInfo_link().click();
@@ -682,7 +709,7 @@ public class PQC_functional_test extends UtilBase {
 			logger.severe("ERROR : getRFQPartStockInfo_test ");
 			test.fail("getRFQPartStockInfo_test");
 			test.addScreenCaptureFromPath(capture("getRFQPartStockInfo_test_failed"), "getRFQPartStockInfo_test");
-			e.printStackTrace();
+			e.printStackTrace();Assert.assertTrue(false);
 		}
 	}
 
@@ -706,7 +733,7 @@ public class PQC_functional_test extends UtilBase {
 			} else {
 				logger.info("ERROR : getIncomingGood_test ");
 				test.fail("getIncomingGood_test");
-				test.addScreenCaptureFromPath(capture("getIncomingGood_test_failed"), "getIncomingGood_test");
+				test.addScreenCaptureFromPath(capture("getIncomingGood_test_failed"), "getIncomingGood_test");Assert.assertTrue(false);
 			}
 //			close the modal
 			pqc_po.incomingGood_ok_button().click();
@@ -715,7 +742,7 @@ public class PQC_functional_test extends UtilBase {
 			logger.severe("ERROR : getIncomingGood_test ");
 			test.fail("getIncomingGood_test");
 			test.addScreenCaptureFromPath(capture("getIncomingGood_test_failed"), "getIncomingGood_test");
-			e.printStackTrace();
+			e.printStackTrace();Assert.assertTrue(false);
 		}
 	}
 
@@ -739,7 +766,7 @@ public class PQC_functional_test extends UtilBase {
 			} else {
 				logger.info("ERROR : getLotDetails_test ");
 				test.fail("getLotDetails_test");
-				test.addScreenCaptureFromPath(capture("getLotDetails_test_failed"), "getLotDetails_test");
+				test.addScreenCaptureFromPath(capture("getLotDetails_test_failed"), "getLotDetails_test");Assert.assertTrue(false);
 			}
 //			clean up
 			pqc_po.lotDetails_leave_button().click();
@@ -748,7 +775,7 @@ public class PQC_functional_test extends UtilBase {
 			logger.severe("ERROR : getLotDetails_test ");
 			test.fail("getLotDetails_test");
 			test.addScreenCaptureFromPath(capture("getLotDetails_test_failed"), "getLotDetails_test");
-			e.printStackTrace();
+			e.printStackTrace();Assert.assertTrue(false);
 		}
 	}
 
@@ -815,7 +842,7 @@ public class PQC_functional_test extends UtilBase {
 			} else {
 				logger.info("ERROR : addPart_test ");
 				test.fail("addPart_test");
-				test.addScreenCaptureFromPath(capture("addPart_test_failed"), "addPart_test");
+				test.addScreenCaptureFromPath(capture("addPart_test_failed"), "addPart_test");Assert.assertTrue(false);
 			}
 			logger.info("END : addPart_test---------------------------------------");
 			Thread.sleep(3000);
@@ -823,7 +850,7 @@ public class PQC_functional_test extends UtilBase {
 			logger.severe("ERROR : addPart_test ");
 			test.fail("addPart_test");
 			test.addScreenCaptureFromPath(capture("addPart_test_failed"), "addPart_test");
-			e.printStackTrace();
+			e.printStackTrace();Assert.assertTrue(false);
 		}
 	}
 
@@ -906,14 +933,14 @@ public class PQC_functional_test extends UtilBase {
 			} else {
 				logger.info("ERROR : getKitPartDetails_test ");
 				test.fail("getKitPartDetails_test");
-				test.addScreenCaptureFromPath(capture("getKitPartDetails_test_failed"), "getKitPartDetails_test");
+				test.addScreenCaptureFromPath(capture("getKitPartDetails_test_failed"), "getKitPartDetails_test");Assert.assertTrue(false);
 			}
 			logger.info("END : getKitPartDetails_test---------------------------------------");
 		} catch (Exception e) {
 			logger.severe("ERROR : getKitPartDetails_test ");
 			test.fail("getKitPartDetails_test");
 			test.addScreenCaptureFromPath(capture("getKitPartDetails_test_failed"), "getKitPartDetails_test");
-			e.printStackTrace();
+			e.printStackTrace();Assert.assertTrue(false);
 		}
 	}
 
@@ -952,11 +979,11 @@ public class PQC_functional_test extends UtilBase {
 			if (commentDataRowCount_after > tableDataRowCount) {
 				logger.info("SUCCESS : getRFQLineAlternates_test");
 				test.pass("getRFQLineAlternates_test");
-				test.addScreenCaptureFromPath(capture("getRFQLineAlternates_test_success"), "getRFQLineAlternates_test ");
+				test.addScreenCaptureFromPath(capture("getRFQLineAlternates_test_success"), "getRFQLineAlternates_test ");Assert.assertTrue(false);
 			} else {
 				logger.info("ERROR : getRFQLineAlternates_test ");
 				test.fail("getRFQLineAlternates_test");
-				test.addScreenCaptureFromPath(capture("getRFQLineAlternates_test_failed"), "getRFQLineAlternates_test");
+				test.addScreenCaptureFromPath(capture("getRFQLineAlternates_test_failed"), "getRFQLineAlternates_test");Assert.assertTrue(false);
 			}
 //			clean up
 			pqc_po.lineAction_getAlternatives(2).click();
@@ -1014,14 +1041,14 @@ public class PQC_functional_test extends UtilBase {
 			} else {
 				logger.info("ERROR : deleteRFQLines_test ");
 				test.fail("deleteRFQLines_test");
-				test.addScreenCaptureFromPath(capture("deleteRFQLines_test_failed"), "deleteRFQLines_test");
+				test.addScreenCaptureFromPath(capture("deleteRFQLines_test_failed"), "deleteRFQLines_test");Assert.assertTrue(false);
 			}
 			logger.info("END : deleteRFQLines_test---------------------------------------");
 		} catch (Exception e) {
 			logger.severe("ERROR : deleteRFQLines_test ");
 			test.fail("deleteRFQLines_test");
 			test.addScreenCaptureFromPath(capture("deleteRFQLines_test_failed"), "deleteRFQLines_test");
-			e.printStackTrace();
+			e.printStackTrace();Assert.assertTrue(false);
 		}
 	}
 
@@ -1043,14 +1070,14 @@ public class PQC_functional_test extends UtilBase {
 			} else {
 				logger.info("ERROR : methodName_test ");
 				test.fail("methodName_test");
-				test.addScreenCaptureFromPath(capture("methodName_test_failed"), "methodName_test");
+				test.addScreenCaptureFromPath(capture("methodName_test_failed"), "methodName_test");Assert.assertTrue(false);
 			}
 			logger.info("END : methodName_test---------------------------------------");
 		} catch (Exception e) {
 			logger.severe("ERROR : methodName_test ");
 			test.fail("methodName_test");
 			test.addScreenCaptureFromPath(capture("methodName_test_failed"), "methodName_test");
-			e.printStackTrace();
+			e.printStackTrace();Assert.assertTrue(false);
 		}
 	}
 
@@ -1089,7 +1116,7 @@ public class PQC_functional_test extends UtilBase {
 			logger.severe("ERROR : emailReport ");
 			test.fail("emailReport");
 			test.addScreenCaptureFromPath(capture("emailReport_failed"), "emailReport");
-			e.printStackTrace();
+			e.printStackTrace();Assert.assertTrue(false);
 		}
 
 	}

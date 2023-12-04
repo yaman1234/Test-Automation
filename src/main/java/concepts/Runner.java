@@ -33,7 +33,8 @@ public class Runner extends UtilBase {
 		
 		boolean b = true;
 		
-		Assert.assertEquals(b, true, "Failed");
+		Assert.assertFalse(false, "Test Failed");
+//		Assert.assertEquals(b, true, "Failed");
 		
 		System.out.println("Method 1");
 //		driver.get(pqc_login_link);
@@ -48,7 +49,8 @@ public class Runner extends UtilBase {
 	public void getTextDiv() {
 		boolean b = true;
 		
-		Assert.assertEquals(b, false, "Failed 2");
+		Assert.assertTrue(false, "Test Failed");
+//		Assert.assertEquals(b, false, "Failed 2");
 		
 		System.out.println("Method 2");
 		
