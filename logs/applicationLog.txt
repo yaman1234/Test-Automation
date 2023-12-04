@@ -1,0 +1,108 @@
+[2023-12-03 08:58:55] [test.PQC_functional_test - login_pqc] [75] [INFO] - START : PQC Login Test ---------------------------
+[2023-12-03 08:59:06] [test.PQC_functional_test - login_pqc] [84] [INFO] - SUCCESS : PQC Login Test PASSED
+[2023-12-03 08:59:06] [test.PQC_functional_test - login_pqc] [92] [INFO] - END : Login Test -------------------------------------------
+[2023-12-03 08:59:06] [test.PQC_functional_test - quickSearchContact_test] [106] [INFO] - START : quickContactSearch test ------------------------------
+[2023-12-03 08:59:10] [test.PQC_functional_test - quickSearchContact_test] [118] [INFO] - Searh Contact expected values [customerNumber_expected=70995, customerName_expected=SAFRAN CABIN GERMANY GMBH, customerCurrency_expected=USD, customerPhone_expected=(114)927-7270/7100, customerContact_expected=sabine.burgener@zodiacaerospace.com]
+[2023-12-03 08:59:15] [test.PQC_functional_test - quickSearchContact_test] [131] [INFO] - Search Contact actual values [customerNumber_actual=70995, customerName_actual=SAFRAN CABIN GERMANY GMBH, customerCurrency_actual=USD, customerPhone_actual=(114)927-7270/7100, customerContact_actual=Sabine Burgener (sabine.burgener@zodiacaerospace.com)]
+[2023-12-03 08:59:15] [test.PQC_functional_test - quickSearchContact_test] [140] [INFO] - SUCCESS : quickContactSearch PASSED
+[2023-12-03 08:59:15] [test.PQC_functional_test - quickSearchContact_test] [150] [INFO] - END : Search customer test ----------------------------------------
+[2023-12-03 08:59:15] [test.PQC_functional_test - createCustomerRFQ] [165] [INFO] - START : create customer RFQ test ---------------------------------------
+[2023-12-03 08:59:18] [test.PQC_functional_test - createCustomerRFQ] [176] [INFO] - Requested Part Details [reqPN_input=a5210-10p, reqQty_input=10, reqUom_input=EA, reqDesc_input=Indicator, reqLineRef_input=auto]
+[2023-12-03 08:59:22] [test.PQC_functional_test - createCustomerRFQ] [188] [INFO] - [create rfq initiated]
+[2023-12-03 08:59:45] [test.PQC_functional_test - createCustomerRFQ] [194] [INFO] - Current URL : http://10.0.1.62:90/ProcessRFQ/1256291
+[2023-12-03 08:59:45] [test.PQC_functional_test - createCustomerRFQ] [199] [INFO] - SUCCESS : create customer RFQ
+[2023-12-03 08:59:45] [test.PQC_functional_test - createCustomerRFQ] [208] [INFO] - END : create customer RFQ test ---------------------------------------
+[2023-12-03 08:59:45] [test.PQC_functional_test - getRFQHeader_test] [236] [INFO] - START : get RFQ Header test ---------------------------------------
+[2023-12-03 08:59:48] [test.PQC_functional_test - getRFQHeader_test] [266] [INFO] - RFQ Header actual values :: 
+[2023-12-03 08:59:48] [test.PQC_functional_test - getRFQHeader_test] [267] [INFO] - RFQ : 1256291
+[2023-12-03 08:59:48] [test.PQC_functional_test - getRFQHeader_test] [268] [INFO] - Account Name : 70995 - SAFRAN CABIN GERMANY GMBH
+[2023-12-03 08:59:48] [test.PQC_functional_test - getRFQHeader_test] [269] [INFO] - Contact Name : 
+[2023-12-03 08:59:48] [test.PQC_functional_test - getRFQHeader_test] [270] [INFO] - get RFQ Contact info values : [ Account Name Customer Type Customer Currency USD Phone (114)927-7270/7100 Contact Name Function Purchasing Contact Email sabine.burgener@zodiacaerospace.com Phone (492)772-7076/70 RFQ Number 1256291 Version 0 RFQ Owner Yaman Maharjan RFQ Created 12/03/2023 08:59:23]
+[2023-12-03 08:59:48] [test.PQC_functional_test - getRFQHeader_test] [271] [INFO] - get RFQ Request Details values : [ Request DetailsEditDelete Payment Terms Net 30 Delivery Condition Ex Works Quote Origin Email (manual) Case Number Customer Ref. Expiry Date 05/31/2024 Quote all sales break Close Automatically Comments]
+[2023-12-03 08:59:48] [test.PQC_functional_test - getRFQHeader_test] [278] [INFO] - SUCCESS : get RFQ Header pass
+[2023-12-03 08:59:49] [test.PQC_functional_test - getRFQHeader_test] [286] [INFO] - END : get RFQ Header test -----------------------------------------
+[2023-12-03 08:59:49] [test.PQC_functional_test - getCustomers_test] [298] [INFO] - START : getCustomers_test  ---------------------------------------
+[2023-12-03 08:59:54] [test.PQC_functional_test - getCustomers_test] [313] [INFO] - Search customer output : [11005, KLM-ROYAL DUTCH AIRLINES, Customer, SCHIPHOL, NL, USD, Yes]
+[2023-12-03 08:59:54] [test.PQC_functional_test - getCustomers_test] [316] [INFO] - Search Customer Row Count2
+[2023-12-03 08:59:54] [test.PQC_functional_test - getCustomers_test] [319] [INFO] - [ 11005 KLM-ROYAL DUTCH AIRLINES ]
+[2023-12-03 08:59:54] [test.PQC_functional_test - getCustomers_test] [322] [INFO] - SUCCESS : getCustomers_test
+[2023-12-03 08:59:55] [test.PQC_functional_test - getCustomers_test] [334] [INFO] - END : getCustomers_test---------------------------------------
+[2023-12-03 08:59:55] [test.PQC_functional_test - getCustomerContacts_test] [347] [INFO] - START : getCustomerContacts_test  ---------------------------------------
+[2023-12-03 08:59:55] [test.PQC_functional_test - getCustomerContacts_test] [352] [INFO] - search Customer Contact Expected Result : [ Sabine Burgener Sabine Burgener ]
+[2023-12-03 09:00:01] [test.PQC_functional_test - getCustomerContacts_test] [362] [INFO] - Search customer output : [, 70995 - SAFRAN CABIN GERMANY GMBH, Sabine Burgener, Customer, sabine.burgener@zodiacaerospace.com, (492)772-7076/70, Yes]
+[2023-12-03 09:00:01] [test.PQC_functional_test - getCustomerContacts_test] [365] [INFO] - Search Customer Contact Row Count2
+[2023-12-03 09:00:01] [test.PQC_functional_test - getCustomerContacts_test] [368] [INFO] - search Customer Contact Acutal Result : [ Sabine Burgener sabine.burgener@zodiacaerospace.com ]
+[2023-12-03 09:00:01] [test.PQC_functional_test - getCustomerContacts_test] [372] [INFO] - SUCCESS : getCustomerContacts_test 
+[2023-12-03 09:00:02] [test.PQC_functional_test - getCustomerContacts_test] [384] [INFO] - END : getCustomerContacts_test---------------------------------------
+[2023-12-03 09:00:02] [test.PQC_functional_test - changeRFQOwner_test] [397] [INFO] - START : changeRFQOwner_test  ---------------------------------------
+[2023-12-03 09:00:02] [test.PQC_functional_test - changeRFQOwner_test] [403] [INFO] - Original Case Owner : [ Yaman Maharjan ]
+[2023-12-03 09:00:02] [test.PQC_functional_test - changeRFQOwner_test] [404] [INFO] - testData : [ Sushan Sunuwar ]
+[2023-12-03 09:00:09] [test.PQC_functional_test - changeRFQOwner_test] [424] [INFO] - newOwner : [ Sushan Sunuwar ]
+[2023-12-03 09:00:09] [test.PQC_functional_test - changeRFQOwner_test] [428] [INFO] - SUCCESS : changeRFQOwner_test
+[2023-12-03 09:00:09] [test.PQC_functional_test - changeRFQOwner_test] [436] [INFO] - END : changeRFQOwner_test---------------------------------------
+[2023-12-03 09:00:09] [test.PQC_functional_test - getCustomerInformation_test] [500] [INFO] - START : get Customer Information test ---------------------------------------
+[2023-12-03 09:00:09] [test.PQC_functional_test - getCustomerInformation_test] [509] [INFO] - Customer Information expected values [accountType_expected=OEM, accountStatus_expected=Active, reportingRegion_expected=EMEA, outsideSalesRep_expected=REMCO VERHOEVE, insideSalesRep_expected=UNASSIGNED REP, customerServiceRep_expected=Claudio Duarte]
+[2023-12-03 09:00:13] [test.PQC_functional_test - getCustomerInformation_test] [519] [INFO] - Account Type OEM Warehouse Hierarchy AMS,MAIN,MIA,SIN,DXB,PTFD,PBI,DCAB,SWDS,DOUS Account Status (Active/Inactive) Active Outside Sales Rep RXV REMCO VERHOEVE Reporting Region EMEA Inside Sales Rep UNA UNASSIGNED REP Tier 2 Strategic Accounts Customer Service Rep CDE Claudio Duarte Shelf Life Requirements Last Sale Date 07/13/2022 Certificate Requirements Manufacturer CoC,a8130,FAA106 YTD Sales Amount 1,339.21 USD Customer Approved to Purchase A,S,U,Z,B,D,E,R,W,L,O,P,Q,T Credit Limit 225,000.00 USD Credit Space 224,036.95 USD
+[2023-12-03 09:00:13] [test.PQC_functional_test - getCustomerInformation_test] [526] [INFO] - Customer Information acutal values [accountType_actual= OEM , accountStatus_actual = Active , reportingRegion_actual = EMEA , outsideSalesRep_actual = RXV REMCO VERHOEVE , insideSalesRep_actual = UNA UNASSIGNED REP , customerServiceRep_actual = CDE Claudio Duarte ]
+[2023-12-03 09:00:13] [test.PQC_functional_test - getCustomerInformation_test] [534] [INFO] - SUCCESS : getCustomerInformation test
+[2023-12-03 09:00:15] [test.PQC_functional_test - getCustomerInformation_test] [544] [INFO] - END : get Customer Information test -----------------------------------------
+[2023-12-03 09:00:15] [test.PQC_functional_test - getPartInformation_test] [555] [INFO] - START : get Part Information test ---------------------------------------
+[2023-12-03 09:00:15] [test.PQC_functional_test - getPartInformation_test] [565] [INFO] - get Part Information expected values : pcat_expected = V81 , pcode_expected = MBA , itemGroup_expected = GEN , kitType_expected = (Not a kit part) , manufacturer_expected = ACTRON MANUFACTURING, INC. , cageCode_expected = 52607 , productManager_expected = G2B
+[2023-12-03 09:00:22] [test.PQC_functional_test - getPartInformation_test] [579] [INFO] -  Part Details Section values : [ Details for part A5210-10P Pcat V81 Pcode MBA Item group GEN Kit type (Not a kit part) Sell Restriction Geo Restriction Revision Level Manufacturer ACTRON MANUFACTURING, INC. Cage code 52607 Material Manager Product Manager G2B Vendor Shelf Life N/A Haz Mat N Reach compliant Y ROHS compliant Y ECCN classification 9A991.D Ref document ]
+[2023-12-03 09:00:23] [test.PQC_functional_test - getPartInformation_test] [587] [INFO] - get Part Information Actual values : pcat_actual = V81 , pcode_actual = MBA , itemGroup_actual = GEN , kitType_actual = (Not a kit part) , manufacturer_actual = ACTRON MANUFACTURING, INC. , cageCode_actual = 52607 , productManager_actual = G2B
+[2023-12-03 09:00:23] [test.PQC_functional_test - getPartInformation_test] [594] [INFO] - SUCCESS : getPartInformation test
+[2023-12-03 09:00:28] [test.PQC_functional_test - getPartInformation_test] [611] [INFO] - END : get part Information test ---------------------------------------
+[2023-12-03 09:00:28] [test.PQC_functional_test - getRFQPartStockInfo_test] [623] [INFO] - START : get RFQ Part Stock Info test ---------------------------------------
+[2023-12-03 09:00:28] [test.PQC_functional_test - getRFQPartStockInfo_test] [628] [INFO] - getRFQPartStockInfo Expected values : [ Total Available = 125 EA , Qty Requested = 10 EA ]
+[2023-12-03 09:00:28] [test.PQC_functional_test - getRFQPartStockInfo_test] [653] [SEVERE] - ERROR : getRFQPartStockInfo_test 
+[2023-12-03 09:00:28] [test.PQC_functional_test - getIncomingGood_test] [664] [INFO] - START : getIncomingGood_test  ---------------------------------------
+[2023-12-03 09:00:28] [test.PQC_functional_test - getIncomingGood_test] [686] [SEVERE] - ERROR : getIncomingGood_test 
+[2023-12-03 09:00:28] [test.PQC_functional_test - getLotDetails_test] [697] [INFO] - START : getLotDetails_test  ---------------------------------------
+[2023-12-03 09:00:28] [test.PQC_functional_test - getLotDetails_test] [719] [SEVERE] - ERROR : getLotDetails_test 
+[2023-12-03 09:00:31] [test.PQC_functional_test - addPart_test] [732] [INFO] - START : addPart_test  ---------------------------------------
+[2023-12-03 09:00:34] [test.PQC_functional_test - addPart_test] [746] [INFO] - Before Add Part: [RFQ row count 1 , RFQ comment count: 1
+[2023-12-03 09:00:47] [test.PQC_functional_test - addPart_test] [769] [INFO] - After Add Part: [RFQ row count 3 , RFQ comment count: 3
+[2023-12-03 09:00:48] [test.PQC_functional_test - addPart_test] [779] [INFO] - SUCCESS : addPart_test test
+[2023-12-03 09:00:49] [test.PQC_functional_test - addPart_test] [791] [INFO] - END : addPart_test---------------------------------------
+[2023-12-03 09:00:52] [test.PQC_functional_test - getKitPartDetails_test] [833] [INFO] - START : getKitPartDetails_test  ---------------------------------------
+[2023-12-03 09:00:59] [test.PQC_functional_test - getKitPartDetails_test] [846] [INFO] - Kit Type : B(Build on demand kit)
+[2023-12-03 09:01:02] [test.PQC_functional_test - getKitPartDetails_test] [857] [INFO] - Header Text: KIT COMPONENT DETAILS
+[2023-12-03 09:01:02] [test.PQC_functional_test - getKitPartDetails_test] [859] [INFO] - Body Text: Kit Part Description UOM Supplier Buyer Quote Code Pcat Pcode Leadtime Build Qty Unit Cost Total Cost Remark
+8525-7324-910 8525-16R16 SHELL EA SOURIAU USD Unassigned D V37 EWD 112 1 19.88 19.88
+8520-292 CONTACT, SOCKET EA SOURIAU USD Unassigned A V81 ECC 105 26 1.35 35.10
+M81969/14-11 TOOL, #20 CONT. INS/EXTR EA STELIA Unassigned C S EAB 7 1 7.25 7.25
+8525-6501-910 INS, SOCK, 16-26, 8525 EA SOURIAU USD Unassigned D V37 EWD 84 1 17.93 17.93
+8526-6714 #16 RET.RING EA SOURIAU USD Unassigned A V37 ECC 70 1 2.90 2.90
+8526-6239 PLASTIC KEY EA SOURIAU USD Unassigned A V81 ECC 84 1 0.37 0.37
+EP-16 DUST CAP YELLOW LDPE SIZE 16, MS90376-16Y EA CAPLUGS Unassigned B V81 EAQ 30 1 0.05 0.05
+MS27488-20-2 SEALING PLUG EA RATIER - FIGEAC Unassigned C S EAB 60 3 0.75 2.25
+
+Grand Total 85.73
+[2023-12-03 09:01:02] [test.PQC_functional_test - getKitPartDetails_test] [861] [INFO] - grandTotal Text: Grand Total 85.73
+[2023-12-03 09:01:02] [test.PQC_functional_test - getKitPartDetails_test] [865] [INFO] - SUCCESS : getKitPartDetails_test
+[2023-12-03 09:01:17] [test.PQC_functional_test - getKitPartDetails_test] [882] [INFO] - END : getKitPartDetails_test---------------------------------------
+[2023-12-03 09:01:17] [test.PQC_functional_test - getRFQLineAlternates_test] [895] [INFO] - START : getRFQLineAlternates_test  ---------------------------------------
+[2023-12-03 09:01:17] [test.PQC_functional_test - getRFQLineAlternates_test] [901] [INFO] - Before get RFQLineAlternates: [RFQ row count 3 , RFQ comment count: 3
+[2023-12-03 09:01:17] [test.PQC_functional_test - getRFQLineAlternates_test] [905] [INFO] - [, , 1, auto, P/n: a5210-10p Descr: Indicator QTY:10 EA, P/n: A5210-10P Descr: SLIDE QTY: 10 EA, 86.21 QUOTE PRICE, Stock, CA-US, A V81 MBA, Manufacturer C of C Proponent C of C, 100.0, Ready To Quote]
+[2023-12-03 09:01:17] [test.PQC_functional_test - getRFQLineAlternates_test] [905] [INFO] - [, , 2, aut, P/n: E0052R16B26SZE Descr: Kit Test QTY:10 EA, P/n: E0052R16B26SZE Descr: CONNECTOR, PLUG-COMPLETE QTY: 10 EA, 77.96 REGULAR PRICE, Stock, FL-US, A A81 EBT, Manufacturer C of C Proponent C of C, 100.0, Ready To Quote]
+[2023-12-03 09:01:18] [test.PQC_functional_test - getRFQLineAlternates_test] [905] [INFO] - [, , 2, aut, P/n: E0052R16B26SZE Descr: Kit Test QTY:10 EA, P/n: 8525-16R16B26SZH008 Descr: CONNECTOR QTY: 10 EA, 77.96 REGULAR PRICE, Unknown, FL-US, A V87 EBU, Manufacturer C of C Proponent C of C, 100.0, Ready To Quote]
+[2023-12-03 09:01:20] [test.PQC_functional_test - getRFQLineAlternates_test] [916] [INFO] - After get RFQ Line Alternates : [RFQ row count 5 , RFQ comment count: 5
+[2023-12-03 09:01:20] [test.PQC_functional_test - getRFQLineAlternates_test] [920] [INFO] - [, , 1, auto, P/n: a5210-10p Descr: Indicator QTY:10 EA, P/n: A5210-10P Descr: SLIDE QTY: 10 EA, 86.21 QUOTE PRICE, Stock, CA-US, A V81 MBA, Manufacturer C of C Proponent C of C, 100.0, Ready To Quote]
+[2023-12-03 09:01:21] [test.PQC_functional_test - getRFQLineAlternates_test] [920] [INFO] - [, , 2, aut, P/n: E0052R16B26SZE Descr: Kit Test QTY:10 EA, P/n: E0052R16B26SZE Descr: CONNECTOR, PLUG-COMPLETE QTY: 10 EA, 77.96 REGULAR PRICE, Stock, FL-US, A A81 EBT, Manufacturer C of C Proponent C of C, 100.0, Ready To Quote]
+[2023-12-03 09:01:21] [test.PQC_functional_test - getRFQLineAlternates_test] [920] [INFO] - [, , 2, aut, P/n: E0052R16B26SZE Descr: Kit Test QTY:10 EA, P/n: EN3646A61626DZ DEU Descr: CONNECTOR QTY: 10 EA, 0, , , D S ECP, Manufacturer C of C Proponent C of C, , No quote]
+[2023-12-03 09:01:21] [test.PQC_functional_test - getRFQLineAlternates_test] [920] [INFO] - [, , 2, aut, P/n: E0052R16B26SZE Descr: Kit Test QTY:10 EA, P/n: FDBA56-16-26SZ-K-A246 Descr: PLUG QTY: 10 EA, 0, , GB, B V81 ECP, Manufacturer C of C Proponent C of C, , Purchase price missing NP]
+[2023-12-03 09:01:22] [test.PQC_functional_test - getRFQLineAlternates_test] [920] [INFO] - [, , 2, aut, P/n: E0052R16B26SZE Descr: Kit Test QTY:10 EA, P/n: 8525-16R16B26SZH008 Descr: CONNECTOR QTY: 10 EA, 77.96 REGULAR PRICE, Unknown, FL-US, A V87 EBU, Manufacturer C of C Proponent C of C, 100.0, Ready To Quote]
+[2023-12-03 09:01:22] [test.PQC_functional_test - getRFQLineAlternates_test] [924] [INFO] - SUCCESS : getRFQLineAlternates_test
+[2023-12-03 09:01:24] [test.PQC_functional_test - getRFQLineAlternates_test] [935] [INFO] - END : getRFQLineAlternates_test---------------------------------------
+[2023-12-03 09:01:24] [test.PQC_functional_test - deleteRFQLines_test] [948] [INFO] - START : deleteRFQLines_test  ---------------------------------------
+[2023-12-03 09:01:24] [test.PQC_functional_test - deleteRFQLines_test] [954] [INFO] - Before Delete: [RFQ row count 3 , RFQ comment count: 3
+[2023-12-03 09:01:24] [test.PQC_functional_test - deleteRFQLines_test] [957] [INFO] - [, , 1, auto, P/n: a5210-10p Descr: Indicator QTY:10 EA, P/n: A5210-10P Descr: SLIDE QTY: 10 EA, 86.21 QUOTE PRICE, Stock, CA-US, A V81 MBA, Manufacturer C of C Proponent C of C, 100.0, Ready To Quote]
+[2023-12-03 09:01:25] [test.PQC_functional_test - deleteRFQLines_test] [957] [INFO] - [, , 2, aut, P/n: E0052R16B26SZE Descr: Kit Test QTY:10 EA, P/n: E0052R16B26SZE Descr: CONNECTOR, PLUG-COMPLETE QTY: 10 EA, 77.96 REGULAR PRICE, Stock, FL-US, A A81 EBT, Manufacturer C of C Proponent C of C, 100.0, Ready To Quote]
+[2023-12-03 09:01:25] [test.PQC_functional_test - deleteRFQLines_test] [957] [INFO] - [, , 2, aut, P/n: E0052R16B26SZE Descr: Kit Test QTY:10 EA, P/n: 8525-16R16B26SZH008 Descr: CONNECTOR QTY: 10 EA, 77.96 REGULAR PRICE, Unknown, FL-US, A V87 EBU, Manufacturer C of C Proponent C of C, 100.0, Ready To Quote]
+[2023-12-03 09:01:33] [test.PQC_functional_test - deleteRFQLines_test] [972] [INFO] - After Delete RFQ Line : [RFQ row count 1 , RFQ comment count: 1
+[2023-12-03 09:01:33] [test.PQC_functional_test - deleteRFQLines_test] [976] [INFO] - [, , 1, auto, P/n: a5210-10p Descr: Indicator QTY:10 EA, P/n: A5210-10P Descr: SLIDE QTY: 10 EA, 86.21 QUOTE PRICE, Stock, CA-US, A V81 MBA, Manufacturer C of C Proponent C of C, 100.0, Ready To Quote]
+[2023-12-03 09:01:33] [test.PQC_functional_test - deleteRFQLines_test] [982] [INFO] - SUCCESS : deleteRFQLines_test
+[2023-12-03 09:01:33] [test.PQC_functional_test - deleteRFQLines_test] [990] [INFO] - END : deleteRFQLines_test---------------------------------------
+[2023-12-03 09:01:33] [test.PQC_functional_test - emailReportAndLog] [1043] [INFO] - START : emailReportAndLog  ---------------------------------------
+[2023-12-03 09:01:54] [test.PQC_functional_test - emailReportAndLog] [1055] [INFO] - SUCCESS : emailReportAndLog
+[2023-12-03 09:01:54] [test.PQC_functional_test - emailReportAndLog] [1058] [INFO] - END : emailReport---------------------------------------

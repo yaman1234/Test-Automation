@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-11-04T05:20:42.031072500Z</date>
+  <millis>1699075242031</millis>
+  <nanos>72500</nanos>
+  <sequence>0</sequence>
+  <logger>test.Logging</logger>
+  <level>INFO</level>
+  <class>test.Logging</class>
+  <method>logInfo</method>
+  <thread>1</thread>
+  <message>This is an info message.</message>
+</record>
+<record>
+  <date>2023-11-04T05:20:42.087306900Z</date>
+  <millis>1699075242087</millis>
+  <nanos>306900</nanos>
+  <sequence>1</sequence>
+  <logger>test.Logging</logger>
+  <level>WARNING</level>
+  <class>test.Logging</class>
+  <method>logWarning</method>
+  <thread>1</thread>
+  <message>This is a warning message.</message>
+</record>
+<record>
+  <date>2023-11-04T05:20:42.089339100Z</date>
+  <millis>1699075242089</millis>
+  <nanos>339100</nanos>
+  <sequence>2</sequence>
+  <logger>test.Logging</logger>
+  <level>SEVERE</level>
+  <class>test.Logging</class>
+  <method>logError</method>
+  <thread>1</thread>
+  <message>This is an error message.</message>
+</record>
+</log>

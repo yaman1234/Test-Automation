@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Practice Suite">
+	<test name="SmokeTest">
+		<parameter name="username" value="yamah022" />
+		<parameter name="password" value="1@work" />
+		<parameter name="env" value="10.0.1.62:90" />
+		<classes>
+			<class name="com.smoketest.SmokeTest" />
+		</classes>
+	</test> <!-- Test -->
+
+	<test name="APITest">
+		<parameter name="emailid" value="tester789@gmail.com" />
+		<classes>
+			<class name="com.apitest.APITest" />
+		</classes>
+
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
