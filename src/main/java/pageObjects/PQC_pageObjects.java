@@ -375,6 +375,30 @@ public class PQC_pageObjects {
 	public WebElement request_details_container() {
 		return WebElementLib.findMyElement("xpath", "//div[@class='request-details-container']");
 	}
+	public WebElement requestDetails_paymentTerms() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='request-details-container']/form/div/div[1]/div[1]/div[2]");
+	}
+	public WebElement requestDetails_deliveryCondition() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='request-details-container']/form/div/div[1]/div[2]/div[2]");
+	}
+	public WebElement requestDetails_quoteOrigin() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='request-details-container']/form/div/div[1]/div[3]/div[2]");
+	}
+	public WebElement requestDetails_caseNumber() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='request-details-container']/form/div/div[1]/div[4]/div[2]");
+	}
+	public WebElement requestDetails_customerRef() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='request-details-container']/form/div/div[2]/div[1]/div[2]");
+	}
+	public WebElement requestDetails_expiryDate() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='request-details-container']/form/div/div[2]/div[2]/div[2]");
+	}
+	public WebElement requestDetails_quoteAll_checkbox() {
+		return WebElementLib.findMyElement("xpath", "");
+	}
+	public WebElement requestDetails_closeAutomatically_checkbox() {
+		return WebElementLib.findMyElement("xpath", "");
+	}
 	/*
 	 * end --- request-details-container, Process RFQ screen
 	 */
@@ -502,13 +526,7 @@ public class PQC_pageObjects {
 		return WebElementLib.findMyElement("xpath", "/html/body/div[5]/div/div/div/div[2]/div/div/div[3]");
 	}
 
-	public WebElement lotDetails_leave_button() {
-		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal add-part-modal']/div[2]/div[3]/button[2]");
-	}
 
-	public WebElement incomingGood_ok_button() {
-		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-footer']/button");
-	}
 	/*
 	 * end -- getPartStockinfo, Lot Details modal, Incoming Good modal  PROCESS RFQ screen	
 	 */
@@ -587,4 +605,90 @@ public class PQC_pageObjects {
 	 * end -- RFQ Line Actions Col
 	 */
 
+	
+	/*
+	 * 
+	 */
+	
+	/*
+	 * start --- popover
+	 * note: same xpath applied for all popovers (sales price break, ships from, certificates)
+	 */
+	
+	public WebElement popoverContent() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-popover-content']");
+	}
+	
+	
+	/*
+	 * 
+	 */
+	
+	
+	/*
+	 * start --- ant-modal-content (Add Part, Incoming Goods, Lot Details, Send Quote)
+	 */
+	public WebElement antModalContent() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']");
+	}
+	public WebElement antModalContent_header() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']/div[@class='ant-modal-header']");
+	}
+	public WebElement antModalContent_body() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']/div[@class='ant-modal-body']");
+	}
+	public WebElement antModalContent_footer() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']/div[@class='ant-modal-footer']");
+	}
+	public WebElement antModalContent_close_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']/button[@aria-label='Close']");
+	}
+	public WebElement antModalContent_ok_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-footer']/button[@title='Ok']");
+	}
+	public WebElement antModalContent_leave_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-footer']/button[span[text()='Leave']]");
+	}
+	public WebElement antModalContent_cancel_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-footer']/button[span[text()='Cancel']]");
+	}
+	public WebElement antModalContent_save_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-footer']/button[span[text()='Save']]");
+	}
+	
+	/*
+	 * end -- ant-modal-content
+	 */
+	
+	/*
+	 * 
+	 */
+	
+	/*
+	 * start -- Edit Request Details
+	 */
+	public WebElement editRFQ_button() {
+		return WebElementLib.findMyElement("xpath", "//button[span[text()='Edit']]");
+	}
+	
+	public WebElement deleteRFQ_button() {
+		return WebElementLib.findMyElement("xpath", "//button[span[text()='Delete']]");
+	}
+	
+	
+	
+	public WebElement editRFQ_custReference_input() {
+		return WebElementLib.findMyElement("xpath", "//*[@id='crhcustref']");
+	}
+	
+	
+	
+	
+	/*
+	 * end -- Edit Request Details
+	 */
+	
+	/*
+	 * 
+	 */
 }

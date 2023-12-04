@@ -9,16 +9,16 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">15</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">188,394</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Default test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">25,299</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">test.PQC_functional_test</td><td><a href="#m0">getRFQLineAlternates_test</a></td><td rowspan="1">1701667015275</td><td rowspan="1">6347</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="15">test.PQC_functional_test</td><td><a href="#m1">addPart_test</a></td><td rowspan="1">1701666966206</td><td rowspan="1">24853</td></tr><tr class="passedeven"><td><a href="#m2">changeRFQOwner_test</a></td><td rowspan="1">1701666926851</td><td rowspan="1">7175</td></tr><tr class="passedeven"><td><a href="#m3">createCustomerRFQ_test</a></td><td rowspan="1">1701666881798</td><td rowspan="1">27111</td></tr><tr class="passedeven"><td><a href="#m4">deleteRFQLines_test</a></td><td rowspan="1">1701667021625</td><td rowspan="1">10278</td></tr><tr class="passedeven"><td><a href="#m5">getCustomerContacts_test</a></td><td rowspan="1">1701666919768</td><td rowspan="1">7081</td></tr><tr class="passedeven"><td><a href="#m6">getCustomerInformation_test</a></td><td rowspan="1">1701666934028</td><td rowspan="1">5871</td></tr><tr class="passedeven"><td><a href="#m7">getCustomers_test</a></td><td rowspan="1">1701666912807</td><td rowspan="1">6958</td></tr><tr class="passedeven"><td><a href="#m8">getIncomingGood_test</a></td><td rowspan="1">1701666956546</td><td rowspan="1">4731</td></tr><tr class="passedeven"><td><a href="#m9">getKitPartDetails_test</a></td><td rowspan="1">1701666991061</td><td rowspan="1">24212</td></tr><tr class="passedeven"><td><a href="#m10">getLotDetails_test</a></td><td rowspan="1">1701666961280</td><td rowspan="1">4924</td></tr><tr class="passedeven"><td><a href="#m11">getPartInformation_test</a></td><td rowspan="1">1701666939902</td><td rowspan="1">13047</td></tr><tr class="passedeven"><td><a href="#m12">getRFQHeader_test</a></td><td rowspan="1">1701666908911</td><td rowspan="1">3895</td></tr><tr class="passedeven"><td><a href="#m13">getRFQPartStockInfo_test</a></td><td rowspan="1">1701666952952</td><td rowspan="1">3592</td></tr><tr class="passedeven"><td><a href="#m14">login_pqc</a></td><td rowspan="1">1701666860743</td><td rowspan="1">11977</td></tr><tr class="passedeven"><td><a href="#m15">quickSearchContact_test</a></td><td rowspan="1">1701666872729</td><td rowspan="1">9066</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">test.PQC_functional_test</td><td><a href="#m0">editRfqHeader</a></td><td rowspan="1">1701683776270</td><td rowspan="1">3591</td></tr><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">test.PQC_functional_test</td><td><a href="#m1">login_pqc</a></td><td rowspan="1">1701683757632</td><td rowspan="1">18634</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">test.PQC_functional_test#getRFQLineAlternates_test</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
+<h2>Default test</h2><h3 id="m0">test.PQC_functional_test#editRfqHeader</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
 	at org.testng.Assert.fail(Assert.java:99)
 	at org.testng.Assert.failNotEquals(Assert.java:1037)
 	at org.testng.Assert.assertTrue(Assert.java:45)
 	at org.testng.Assert.assertTrue(Assert.java:55)
-	at test.PQC_functional_test.getRFQLineAlternates_test(PQC_functional_test.java:998)
+	at test.PQC_functional_test.editRfqHeader(PQC_functional_test.java:557)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
 	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
@@ -46,20 +46,6 @@
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">test.PQC_functional_test#addPart_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">test.PQC_functional_test#changeRFQOwner_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">test.PQC_functional_test#createCustomerRFQ_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">test.PQC_functional_test#deleteRFQLines_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">test.PQC_functional_test#getCustomerContacts_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">test.PQC_functional_test#getCustomerInformation_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">test.PQC_functional_test#getCustomers_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">test.PQC_functional_test#getIncomingGood_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">test.PQC_functional_test#getKitPartDetails_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m10">test.PQC_functional_test#getLotDetails_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m11">test.PQC_functional_test#getPartInformation_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m12">test.PQC_functional_test#getRFQHeader_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m13">test.PQC_functional_test#getRFQPartStockInfo_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m14">test.PQC_functional_test#login_pqc</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m15">test.PQC_functional_test#quickSearchContact_test</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">test.PQC_functional_test#login_pqc</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

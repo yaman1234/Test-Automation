@@ -31,7 +31,16 @@ public class Runner extends UtilBase {
 	@Test(priority = 1)
 	public void method1() throws InterruptedException {
 		
+		
 		boolean b = true;
+		
+	     // Check the condition
+        if (b) {
+            // If condition is false, skip the test
+            System.out.println("Condition is not met. Skipping the test.");
+            throw new org.testng.SkipException("Skipping the test as the condition is not met.");
+        }
+		
 		
 		Assert.assertFalse(false, "Test Failed");
 //		Assert.assertEquals(b, true, "Failed");

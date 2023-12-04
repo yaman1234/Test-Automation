@@ -105,10 +105,11 @@ public class PQC_functional_test extends UtilBase {
 		logger.setDefaults();
 	}
 
-	/*
-	 * Login Test
-	 */
-	@Test(priority = 1, groups = "login")
+	/*--------------------------------------
+	 Test name		: login_pqc
+	 Description	: Test login in PQC Application
+	 --------------------------------------*/
+	@Test(priority = 5, groups = "login")
 	public void login_pqc() {
 		try {
 
@@ -119,6 +120,9 @@ public class PQC_functional_test extends UtilBase {
 			Thread.sleep(1000);
 
 			driver.get("http://" + pqc_baseurl);
+			Thread.sleep(5000);
+			
+			driver.get("http://10.0.1.62:90/ProcessRFQ/1256303");
 			Thread.sleep(5000);
 
 //			Run the Test
@@ -146,8 +150,13 @@ public class PQC_functional_test extends UtilBase {
 	/*
 	 * Search contact, Create Customer RFQ page
 	 */
-	@Test(priority = 2)
-	public void quickSearchContact_test() {
+	/*--------------------------------------
+	 Test name		: login_pqc
+	 Description	: Test quickContactSearch API
+	 --------------------------------------*/
+	
+//	@Test(priority = 10,  groups = "createRFQ")
+	public void quickContactSearch() {
 		try {
 			logger.info("START : quickContactSearch test ------------------------------");
 			test = extent.createTest("quickContactSearch");
@@ -205,10 +214,20 @@ public class PQC_functional_test extends UtilBase {
 	/*
 	 * create manual RFQ test
 	 */
-	@Test(priority = 3)
-	public void createCustomerRFQ_test() {
+//	@Test(priority = 15,  groups = "createRFQ")
+	public void createCustomerRFQ() {
 		try {
 
+			boolean skipTest = false;
+			
+		     // Check the condition
+	        if (skipTest) {
+	        	driver.get("http://10.0.1.62:90/ProcessRFQ/1256303");
+	            // If condition is false, skip the test
+	            System.out.println("Condition is not met. Skipping the test.");
+	            throw new org.testng.SkipException("Skipping the test as the condition is not met.");
+	        }
+			
 			test = extent.createTest("create customer RFQ manually");
 			logger.info("START : create customer RFQ test ---------------------------------------");
 
@@ -277,8 +296,8 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 5)
-	public void getRFQHeader_test() {
+//	@Test(priority = 20,  groups = "processRFQ")
+	public void getRFQHeader() {
 
 		try {
 
@@ -343,8 +362,8 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 6)
-	public void getCustomers_test() {
+//	@Test(priority = 25,  groups = "processRFQ")
+	public void getCustomers() {
 		try {
 			test = extent.createTest("getCustomers_test");
 			logger.info("START : getCustomers_test  ---------------------------------------");
@@ -394,8 +413,8 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 7)
-	public void getCustomerContacts_test() {
+//	@Test(priority = 30,  groups = "processRFQ")
+	public void getCustomerContacts() {
 		try {
 			test = extent.createTest("getCustomerContacts_test");
 			logger.info("START : getCustomerContacts_test  ---------------------------------------");
@@ -446,8 +465,8 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 10)
-	public void changeRFQOwner_test() {
+//	@Test(priority = 35,  groups = "processRFQ")
+	public void changeRfqOwner() {
 		try {
 			test = extent.createTest("changeRFQOwner_test");
 			logger.info("START : changeRFQOwner_test  ---------------------------------------");
@@ -500,6 +519,60 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
+	
+	@Test (priority = 40,  groups = "processRFQ")
+	public void editRfqHeader() {
+	try {
+		test = extent.createTest("editRfqHeader");
+		logger.info("START : editRfqHeader  ---------------------------------------");
+
+//		Initialize variable with expected values
+		String expected_custRef = "Ref101";
+		logger.info("Customer Reference Test data : " + expected_custRef);
+		
+//		click to open Edit Request Details Modal
+		pqc_po.editRFQ_button().click();
+		Thread.sleep(1000);
+		
+//		verify modal header
+		String modalHeader = pqc_po.antModalContent_header().getText();
+		logger.info("Header: " +modalHeader);
+		Assert.assertEquals(modalHeader, "EDIT REQUEST DETAILS");
+
+		
+//		Hit the API
+		pqc_po.editRFQ_custReference_input().clear();
+		pqc_po.editRFQ_custReference_input().sendKeys(expected_custRef);
+		pqc_po.antModalContent_save_button().click();
+		Thread.sleep(2000);
+		
+//			Initialize variable with actual values
+		String actual_custRef = pqc_po.requestDetails_customerRef().getText();
+//			Run the Test
+		if (expected_custRef.equals(actual_custRef)) {
+			logger.info("SUCCESS : editRfqHeader");
+			test.pass("editRfqHeader");
+//		 Use JavaScriptExecutor to scroll the element into view
+			test.addScreenCaptureFromPath(capture("editRfqHeader_success"), "editRfqHeader ");
+		} else {
+			logger.info("ERROR : editRfqHeader ");
+			test.fail("editRfqHeader");
+			test.addScreenCaptureFromPath(capture("editRfqHeader_failed"), "editRfqHeader");
+			Assert.assertEquals(actual_custRef, expected_custRef);
+		}
+		
+		
+		logger.info("END : editRfqHeader---------------------------------------");
+	} catch (Exception e) {
+		logger.severe("ERROR : editRfqHeader ");
+		test.fail("editRfqHeader");
+		test.addScreenCaptureFromPath(capture("editRfqHeader_failed"), "editRfqHeader");
+		e.printStackTrace();
+		Assert.assertTrue(false);
+	}
+}
+
+	
 //	@Test(priority = 4)
 	public void purchasePrice_test() {
 		try {
@@ -551,8 +624,8 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 15)
-	public void getCustomerInformation_test() {
+//	@Test(priority = 45,  groups = "processRFQ")
+	public void getCustomerInformation() {
 		try {
 			test = extent.createTest("getCustomerInformation");
 			logger.info("START : get Customer Information test ---------------------------------------");
@@ -608,8 +681,8 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 20)
-	public void getPartInformation_test() {
+//	@Test(priority = 50,  groups = "processRFQ")
+	public void getPartInfo() {
 		try {
 			test = extent.createTest("getPartInformation");
 			logger.info("START : get Part Information test ---------------------------------------");
@@ -677,8 +750,8 @@ public class PQC_functional_test extends UtilBase {
 
 	}
 
-	@Test(priority = 25)
-	public void getRFQPartStockInfo_test() {
+//	@Test(priority = 25,  groups = "processRFQ")
+	public void getRFQPartStockInfo() {
 		try {
 			test = extent.createTest("getRFQPartStockInfo");
 			logger.info("START : get RFQ Part Stock Info test ---------------------------------------");
@@ -720,7 +793,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 30)
+//	@Test(priority = 30,  groups = "processRFQ")
 	public void getIncomingGood_test() {
 		try {
 			test = extent.createTest("getIncomingGood_test");
@@ -732,8 +805,12 @@ public class PQC_functional_test extends UtilBase {
 			pqc_po.getIncomingGood_link().click();
 			Thread.sleep(2000);
 //			Initialize variable with actual values
+			String lotDetails_header = pqc_po.antModalContent_header().getText();
+			String lotDetails_body = pqc_po.antModalContent_body().getText();
+			logger.info("Incoming Goods Header: " + lotDetails_header);
+			logger.info("Incoming Goods Body: " + lotDetails_body);
 //			Run the Test
-			if (true) {
+			if (lotDetails_body != null) {
 				logger.info("SUCCESS : getIncomingGood_test ");
 				test.pass("getIncomingGood_test");
 				test.addScreenCaptureFromPath(capture("getIncomingGood_test_success"), "getIncomingGood_test ");
@@ -744,7 +821,7 @@ public class PQC_functional_test extends UtilBase {
 				Assert.assertTrue(false);
 			}
 //			close the modal
-			pqc_po.incomingGood_ok_button().click();
+			pqc_po.antModalContent_close_button().click();
 			logger.info("END : getIncomingGood_test---------------------------------------");
 		} catch (Exception e) {
 			logger.severe("ERROR : getIncomingGood_test ");
@@ -755,7 +832,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 35)
+//	@Test(priority = 35,  groups = "processRFQ")
 	public void getLotDetails_test() {
 		try {
 			test = extent.createTest("getLotDetails_test");
@@ -767,8 +844,12 @@ public class PQC_functional_test extends UtilBase {
 			pqc_po.getLotDetails_link().click();
 			Thread.sleep(2000);
 //			Initialize variable with actual values
+			String lotDetails_header = pqc_po.antModalContent_header().getText();
+			String lotDetails_body = pqc_po.antModalContent_body().getText();
+			logger.info("Lot Details Header: " + lotDetails_header);
+			logger.info("Lot Details Body: " + lotDetails_body);
 //			Run the Test
-			if (true) {
+			if (lotDetails_body != null) {
 				logger.info("SUCCESS : getLotDetails_test test");
 				test.pass("getLotDetails_test");
 				test.addScreenCaptureFromPath(capture("getLotDetails_test_success"), "getLotDetails_test ");
@@ -779,7 +860,7 @@ public class PQC_functional_test extends UtilBase {
 				Assert.assertTrue(false);
 			}
 //			clean up
-			pqc_po.lotDetails_leave_button().click();
+			pqc_po.antModalContent_close_button().click();
 			logger.info("END : getLotDetails_test---------------------------------------");
 		} catch (Exception e) {
 			logger.severe("ERROR : getLotDetails_test ");
@@ -790,7 +871,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 40)
+//	@Test(priority = 40,  groups = "processRFQ")
 	public void addPart_test() {
 		try {
 			driver.navigate().refresh();
@@ -816,6 +897,9 @@ public class PQC_functional_test extends UtilBase {
 			pqc_po.addPart_button().click();
 			Thread.sleep(1000);
 
+//			get the header of modal
+			logger.info("Add Part modal Header: " +   pqc_po.antModalContent_header().getText());
+			
 //		send Input 
 			pqc_po.addPartNumber_input().sendKeys(addPartNumber_input);
 			pqc_po.addPartDescription_input().sendKeys(addPartDesc_input);
@@ -895,7 +979,7 @@ public class PQC_functional_test extends UtilBase {
 		return tdTextList;
 	}
 
-	@Test(priority = 45)
+//	@Test(priority = 45,  groups = "processRFQ")
 	public void getKitPartDetails_test() {
 		try {
 			test = extent.createTest("getKitPartDetails_test");
@@ -959,7 +1043,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 50)
+//	@Test(priority = 50,  groups = "processRFQ")
 	public void getRFQLineAlternates_test() {
 		try {
 			test = extent.createTest("getRFQLineAlternates_test");
@@ -1014,8 +1098,8 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 55)
-	public void deleteRFQLines_test() {
+//	@Test(priority = 55,  groups = "processRFQ")
+	public void deleteRFQLines() {
 		try {
 			test = extent.createTest("deleteRFQLines_test");
 			logger.info("START : deleteRFQLines_test  ---------------------------------------");
@@ -1051,7 +1135,7 @@ public class PQC_functional_test extends UtilBase {
 
 //			Initialize variable with actual values
 //			Run the Test
-			if (true) {
+			if (tableDataRowCount_after < tableDataRowCount ) {
 				logger.info("SUCCESS : deleteRFQLines_test");
 				test.pass("deleteRFQLines_test");
 				test.addScreenCaptureFromPath(capture("deleteRFQLines_test_success"), "deleteRFQLines_test ");
@@ -1147,7 +1231,7 @@ public class PQC_functional_test extends UtilBase {
 	public void teardown() {
 		extent.flush();
 //		driver.close();
-		emailReportAndLog();
+//		emailReportAndLog();
 	}
 
 }

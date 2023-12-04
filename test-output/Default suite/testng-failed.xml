@@ -6,7 +6,7 @@
       <class name="test.PQC_functional_test">
         <methods>
           <include name="teardown"/>
-          <include name="getRFQLineAlternates_test"/>
+          <include name="editRfqHeader"/>
           <include name="setup"/>
         </methods>
       </class> <!-- test.PQC_functional_test -->
