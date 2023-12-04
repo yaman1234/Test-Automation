@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="concepts.Runner">
+      <class name="test.PQC_functional_test">
         <methods>
-          <include name="setup"/>
           <include name="teardown"/>
-          <include name="getTextDiv"/>
+          <include name="getRFQLineAlternates_test"/>
+          <include name="setup"/>
         </methods>
-      </class> <!-- concepts.Runner -->
+      </class> <!-- test.PQC_functional_test -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

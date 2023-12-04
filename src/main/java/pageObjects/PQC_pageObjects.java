@@ -94,7 +94,7 @@ public class PQC_pageObjects {
 
 	/* getRFQPartStockInfo API */
 	public WebElement getRFQPartStockInfo_link() {
-		return WebElementLib.findMyElement("xpath", "//*[@id='root']/div/div/div/main/div/div[4]/div[3]/div/div/div/div/div/table/tbody/tr[1]/td[9]/div/div[2]");
+		return WebElementLib.findMyElement("xpath", "//*[@id='root']/div/div/div/main/div/div[4]/div[3]/div/div/div/div/div/table/tbody/tr[1]/td[9]/span[2]");
 	}
 
 	/* getIncomingGoods API */
