@@ -69,6 +69,12 @@ public class PQC_pageObjects {
 	public WebElement pr_getCustomers_button() {
 		return WebElementLib.findMyElement("xpath", "//*[@id=\"root\"]/div/div/div/main/div/div[1]/form/div/div[1]/div[1]/div[2]/div/div/span/span/span/button");
 	}
+	
+	/* getQuoteHistory API */
+//	get customer contacts
+	public WebElement getQuoteHistory_link() {
+		return WebElementLib.findMyElement("xpath", "//a[@title='Quote History']");
+	}
 
 	/* get Customer Contacts API */
 //	get customer contacts
@@ -626,7 +632,7 @@ public class PQC_pageObjects {
 	
 	
 	/*
-	 * start --- ant-modal-content (Add Part, Incoming Goods, Lot Details, Send Quote)
+	 * start --- ant-modal-content (Add Part, Incoming Goods, Lot Details, Send Quote, getQuoteHistory)
 	 */
 	public WebElement antModalContent() {
 		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']");
@@ -644,7 +650,7 @@ public class PQC_pageObjects {
 		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']/button[@aria-label='Close']");
 	}
 	public WebElement antModalContent_ok_button() {
-		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-footer']/button[@title='Ok']");
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-footer']/button/span[text()='Ok']");
 	}
 	public WebElement antModalContent_leave_button() {
 		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-footer']/button[span[text()='Leave']]");

@@ -121,7 +121,7 @@ public class PQC_functional_test extends UtilBase {
 
 			driver.get("http://" + pqc_baseurl);
 			Thread.sleep(5000);
-			
+
 			driver.get("http://10.0.1.62:90/ProcessRFQ/1256303");
 			Thread.sleep(5000);
 
@@ -154,8 +154,8 @@ public class PQC_functional_test extends UtilBase {
 	 Test name		: login_pqc
 	 Description	: Test quickContactSearch API
 	 --------------------------------------*/
-	
-	@Test(priority = 10,  groups = "createRFQ")
+
+	@Test(priority = 10, groups = "createRFQ")
 	public void quickContactSearch() {
 		try {
 			logger.info("START : quickContactSearch test ------------------------------");
@@ -214,20 +214,20 @@ public class PQC_functional_test extends UtilBase {
 	/*
 	 * create manual RFQ test
 	 */
-	@Test(priority = 15,  groups = "createRFQ")
+	@Test(priority = 15, groups = "createRFQ")
 	public void createCustomerRFQ() {
 		try {
 
 			boolean skipTest = false;
-			
-		     // Check the condition
-	        if (skipTest) {
-	        	driver.get("http://10.0.1.62:90/ProcessRFQ/1256303");
-	            // If condition is false, skip the test
-	            System.out.println("Condition is not met. Skipping the test.");
-	            throw new org.testng.SkipException("Skipping the test as the condition is not met.");
-	        }
-			
+
+			// Check the condition
+			if (skipTest) {
+				driver.get("http://10.0.1.62:90/ProcessRFQ/1256303");
+				// If condition is false, skip the test
+				System.out.println("Condition is not met. Skipping the test.");
+				throw new org.testng.SkipException("Skipping the test as the condition is not met.");
+			}
+
 			test = extent.createTest("create customer RFQ manually");
 			logger.info("START : create customer RFQ test ---------------------------------------");
 
@@ -296,7 +296,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 20,  groups = "processRFQ")
+	@Test(priority = 20, groups = "processRFQ")
 	public void getRFQHeader() {
 
 		try {
@@ -362,7 +362,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 25,  groups = "processRFQ")
+	@Test(priority = 25, groups = "processRFQ")
 	public void getCustomers() {
 		try {
 			test = extent.createTest("getCustomers_test");
@@ -413,7 +413,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 30,  groups = "processRFQ")
+	@Test(priority = 30, groups = "processRFQ")
 	public void getCustomerContacts() {
 		try {
 			test = extent.createTest("getCustomerContacts_test");
@@ -465,7 +465,51 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 35,  groups = "processRFQ")
+	@Test(priority = 32)
+	public void getQuoteHistory() {
+		try {
+			test = extent.createTest("getQuoteHistory");
+			logger.info("START : getQuoteHistory  ---------------------------------------");
+//			Initialize variable with expected values
+			String expectedHeader = "QUOTE HISTORY";
+			String expectedBody = "No Data";
+//			Hit the API
+//			 Use JavaScriptExecutor to scroll the element into view
+			jsDriver.executeScript("arguments[0].scrollIntoView({block: 'center'});", pqc_po.getQuoteHistory_link());
+			pqc_po.getQuoteHistory_link().click();
+			Thread.sleep(2000);
+
+//			Initialize variable with actual values
+			String header = pqc_po.antModalContent_header().getText();
+			logger.info("modal Header: " + header);
+			String body = pqc_po.antModalContent_body().getText();
+			logger.info("modal Body: " + body);
+
+//			Run the Test
+			if (expectedHeader.equals(header) && body.contains(expectedBody)) {
+				logger.info("SUCCESS : getQuoteHistory");
+				test.pass("getQuoteHistory");
+				test.addScreenCaptureFromPath(capture("getQuoteHistory"), "getQuoteHistory ");
+			} else {
+				logger.info("ERROR : getQuoteHistory ");
+				test.fail("getQuoteHistory");
+				test.addScreenCaptureFromPath(capture("getQuoteHistory_failed"), "getQuoteHistory");
+				Assert.assertTrue(false);
+			}
+//			cleanup
+			Thread.sleep(1000);
+			pqc_po.antModalContent_ok_button().click();
+			logger.info("END : getQuoteHistory---------------------------------------");
+		} catch (Exception e) {
+			logger.severe("ERROR : getQuoteHistory ");
+			test.fail("getQuoteHistory");
+			test.addScreenCaptureFromPath(capture("getQuoteHistory_failed"), "getQuoteHistory");
+			e.printStackTrace();
+			Assert.assertTrue(false);
+		}
+	}
+
+	@Test(priority = 35, groups = "processRFQ")
 	public void changeRfqOwner() {
 		try {
 			test = extent.createTest("changeRFQOwner_test");
@@ -520,60 +564,56 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	
-	@Test (priority = 40,  groups = "processRFQ")
+	@Test(priority = 40, groups = "processRFQ")
 	public void editRfqHeader() {
-	try {
-		test = extent.createTest("editRfqHeader");
-		logger.info("START : editRfqHeader  ---------------------------------------");
+		try {
+			test = extent.createTest("editRfqHeader");
+			logger.info("START : editRfqHeader  ---------------------------------------");
 
 //		Initialize variable with expected values
-		String expected_custRef = "Ref101";
-		logger.info("Customer Reference Test data : " + expected_custRef);
-		
-//		click to open Edit Request Details Modal
-		pqc_po.editRFQ_button().click();
-		Thread.sleep(1000);
-		
-//		verify modal header
-		String modalHeader = pqc_po.antModalContent_header().getText();
-		logger.info("Header: " +modalHeader);
-		Assert.assertEquals(modalHeader, "EDIT REQUEST DETAILS");
+			String expected_custRef = "Ref101";
+			logger.info("Customer Reference Test data : " + expected_custRef);
 
-		
+//		click to open Edit Request Details Modal
+			pqc_po.editRFQ_button().click();
+			Thread.sleep(1000);
+
+//		verify modal header
+			String modalHeader = pqc_po.antModalContent_header().getText();
+			logger.info("Header: " + modalHeader);
+			Assert.assertEquals(modalHeader, "EDIT REQUEST DETAILS");
+
 //		Hit the API
-		pqc_po.editRFQ_custReference_input().clear();
-		pqc_po.editRFQ_custReference_input().sendKeys(expected_custRef);
-		pqc_po.antModalContent_save_button().click();
-		Thread.sleep(2000);
-		
+			pqc_po.editRFQ_custReference_input().clear();
+			pqc_po.editRFQ_custReference_input().sendKeys(expected_custRef);
+			pqc_po.antModalContent_save_button().click();
+			Thread.sleep(2000);
+
 //			Initialize variable with actual values
-		String actual_custRef = pqc_po.requestDetails_customerRef().getText();
+			String actual_custRef = pqc_po.requestDetails_customerRef().getText();
 //			Run the Test
-		if (expected_custRef.equals(actual_custRef)) {
-			logger.info("SUCCESS : editRfqHeader");
-			test.pass("editRfqHeader");
+			if (expected_custRef.equals(actual_custRef)) {
+				logger.info("SUCCESS : editRfqHeader");
+				test.pass("editRfqHeader");
 //		 Use JavaScriptExecutor to scroll the element into view
-			test.addScreenCaptureFromPath(capture("editRfqHeader_success"), "editRfqHeader ");
-		} else {
-			logger.info("ERROR : editRfqHeader ");
+				test.addScreenCaptureFromPath(capture("editRfqHeader_success"), "editRfqHeader ");
+			} else {
+				logger.info("ERROR : editRfqHeader ");
+				test.fail("editRfqHeader");
+				test.addScreenCaptureFromPath(capture("editRfqHeader_failed"), "editRfqHeader");
+				Assert.assertEquals(actual_custRef, expected_custRef);
+			}
+
+			logger.info("END : editRfqHeader---------------------------------------");
+		} catch (Exception e) {
+			logger.severe("ERROR : editRfqHeader ");
 			test.fail("editRfqHeader");
 			test.addScreenCaptureFromPath(capture("editRfqHeader_failed"), "editRfqHeader");
-			Assert.assertEquals(actual_custRef, expected_custRef);
+			e.printStackTrace();
+			Assert.assertTrue(false);
 		}
-		
-		
-		logger.info("END : editRfqHeader---------------------------------------");
-	} catch (Exception e) {
-		logger.severe("ERROR : editRfqHeader ");
-		test.fail("editRfqHeader");
-		test.addScreenCaptureFromPath(capture("editRfqHeader_failed"), "editRfqHeader");
-		e.printStackTrace();
-		Assert.assertTrue(false);
 	}
-}
 
-	
 //	@Test(priority = 4)
 	public void purchasePrice_test() {
 		try {
@@ -625,7 +665,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 45,  groups = "processRFQ")
+	@Test(priority = 45, groups = "processRFQ")
 	public void getCustomerInformation() {
 		try {
 			test = extent.createTest("getCustomerInformation");
@@ -682,7 +722,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 50,  groups = "processRFQ")
+	@Test(priority = 50, groups = "processRFQ")
 	public void getPartInfo() {
 		try {
 			test = extent.createTest("getPartInformation");
@@ -751,7 +791,7 @@ public class PQC_functional_test extends UtilBase {
 
 	}
 
-	@Test(priority = 55,  groups = "processRFQ")
+	@Test(priority = 55, groups = "processRFQ")
 	public void getRFQPartStockInfo() {
 		try {
 			test = extent.createTest("getRFQPartStockInfo");
@@ -794,7 +834,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 60,  groups = "processRFQ")
+	@Test(priority = 60, groups = "processRFQ")
 	public void getIncomingGood_test() {
 		try {
 			test = extent.createTest("getIncomingGood_test");
@@ -833,7 +873,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 65,  groups = "processRFQ")
+	@Test(priority = 65, groups = "processRFQ")
 	public void getLotDetails_test() {
 		try {
 			test = extent.createTest("getLotDetails_test");
@@ -872,7 +912,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 70,  groups = "processRFQ")
+	@Test(priority = 70, groups = "processRFQ")
 	public void addRFQLine() {
 		try {
 			driver.navigate().refresh();
@@ -899,8 +939,8 @@ public class PQC_functional_test extends UtilBase {
 			Thread.sleep(1000);
 
 //			get the header of modal
-			logger.info("Add Part modal Header: " +   pqc_po.antModalContent_header().getText());
-			
+			logger.info("Add Part modal Header: " + pqc_po.antModalContent_header().getText());
+
 //		send Input 
 			pqc_po.addPartNumber_input().sendKeys(addPartNumber_input);
 			pqc_po.addPartDescription_input().sendKeys(addPartDesc_input);
@@ -980,7 +1020,7 @@ public class PQC_functional_test extends UtilBase {
 		return tdTextList;
 	}
 
-	@Test(priority = 75,  groups = "processRFQ")
+	@Test(priority = 75, groups = "processRFQ")
 	public void getKitPartDetails_test() {
 		try {
 			test = extent.createTest("getKitPartDetails_test");
@@ -1044,7 +1084,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 80,  groups = "processRFQ")
+	@Test(priority = 80, groups = "processRFQ")
 	public void getRFQLineAlternates_test() {
 		try {
 			test = extent.createTest("getRFQLineAlternates_test");
@@ -1099,7 +1139,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	@Test(priority = 85,  groups = "processRFQ")
+	@Test(priority = 85, groups = "processRFQ")
 	public void deleteRFQLines() {
 		try {
 			test = extent.createTest("deleteRFQLines_test");
@@ -1136,7 +1176,7 @@ public class PQC_functional_test extends UtilBase {
 
 //			Initialize variable with actual values
 //			Run the Test
-			if (tableDataRowCount_after < tableDataRowCount ) {
+			if (tableDataRowCount_after < tableDataRowCount) {
 				logger.info("SUCCESS : deleteRFQLines_test");
 				test.pass("deleteRFQLines_test");
 				test.addScreenCaptureFromPath(capture("deleteRFQLines_test_success"), "deleteRFQLines_test ");
@@ -1198,6 +1238,7 @@ public class PQC_functional_test extends UtilBase {
 				+ customerContact_expected + "]";
 	}
 
+	@Test(priority = 999)
 	public void emailReportAndLog() {
 
 		try {
@@ -1232,7 +1273,6 @@ public class PQC_functional_test extends UtilBase {
 	public void teardown() {
 		extent.flush();
 //		driver.close();
-		emailReportAndLog();
 	}
 
 }

@@ -5,9 +5,14 @@
     <classes>
       <class name="test.PQC_functional_test">
         <methods>
+          <include name="getCustomerInformation"/>
+          <include name="getLotDetails_test"/>
           <include name="teardown"/>
+          <include name="editRfqHeader"/>
+          <include name="getIncomingGood_test"/>
+          <include name="changeRfqOwner"/>
+          <include name="getRFQPartStockInfo"/>
           <include name="setup"/>
-          <include name="addPart_test"/>
         </methods>
       </class> <!-- test.PQC_functional_test -->
     </classes>
