@@ -6,8 +6,8 @@
       <class name="test.PQC_functional_test">
         <methods>
           <include name="teardown"/>
-          <include name="editRfqHeader"/>
           <include name="setup"/>
+          <include name="addPart_test"/>
         </methods>
       </class> <!-- test.PQC_functional_test -->
     </classes>

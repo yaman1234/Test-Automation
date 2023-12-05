@@ -89,7 +89,7 @@ public class PQC_pageObjects {
 	/* getPartInformation API */
 	public WebElement getPartInformation_link(int row) {
 		return WebElementLib.findMyElement("xpath",
-				"//div[@class='ant-table-wrapper process-rfq-table']/div/div/div/div/div/table/tbody/tr[@class='ant-table-row ant-table-row-level-0'][" + row + "]/td[6]/div/a");
+				"//div[@class='ant-table-wrapper process-rfq-table']/div/div/div/div/div/table/tbody/tr[@class='ant-table-row ant-table-row-level-0 primary-row'][" + row + "]/td[6]/div/a");
 	}
 
 	/* getRFQPartStockInfo API */
@@ -580,14 +580,14 @@ public class PQC_pageObjects {
 
 	public WebElement lineAction_edit(int row) {
 		return WebElementLib.findMyElement("xpath",
-				"//div[@class='ant-table-wrapper process-rfq-table']/div/div/div/div/div/table/tbody/tr[@class='ant-table-row ant-table-row-level-0'][" + row
+				"//div[@class='ant-table-wrapper process-rfq-table']/div/div/div/div/div/table/tbody/tr[@class='ant-table-row ant-table-row-level-0 primary-row'][" + row
 						+ "]/td[2]/div/span[@title='Edit']");
 	}
 	
 	/* deleteRFQLines API */
 	public WebElement lineAction_delete(int row) {
 		return WebElementLib.findMyElement("xpath",
-				"//div[@class='ant-table-wrapper process-rfq-table']/div/div/div/div/div/table/tbody/tr[@class='ant-table-row ant-table-row-level-0'][" + row
+				"//div[@class='ant-table-wrapper process-rfq-table']/div/div/div/div/div/table/tbody/tr[@class='ant-table-row ant-table-row-level-0 primary-row'][" + row
 						+ "]/td[2]/div/span[@title='Delete']");
 	}
 
@@ -598,7 +598,7 @@ public class PQC_pageObjects {
 	/* getRFQLineAlternates API */
 	public WebElement lineAction_getAlternatives(int row) {
 		return WebElementLib.findMyElement("xpath",
-				"//div[@class='ant-table-wrapper process-rfq-table']/div/div/div/div/div/table/tbody/tr[@class='ant-table-row ant-table-row-level-0'][" + row
+				"//div[@class='ant-table-wrapper process-rfq-table']/div/div/div/div/div/table/tbody/tr[@class='ant-table-row ant-table-row-level-0 primary-row'][" + row
 						+ "]/td[2]/div/span[@title='Alternatives']");
 	}
 	/*

@@ -1,68 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="17" passed="17" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-12-04T15:40:54 NPT" name="Default suite" finished-at="2023-12-04T15:41:20 NPT" duration-ms="25299">
+  <suite started-at="2023-12-05T14:37:00 NPT" name="Default suite" finished-at="2023-12-05T14:40:09 NPT" duration-ms="188636">
     <groups>
+      <group name="processRFQ">
+        <method signature="PQC_functional_test.addRFQLine()[pri:70, instance:test.PQC_functional_test@70925b45]" name="addRFQLine" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.changeRfqOwner()[pri:35, instance:test.PQC_functional_test@70925b45]" name="changeRfqOwner" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.deleteRFQLines()[pri:85, instance:test.PQC_functional_test@70925b45]" name="deleteRFQLines" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.editRfqHeader()[pri:40, instance:test.PQC_functional_test@70925b45]" name="editRfqHeader" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.getCustomerContacts()[pri:30, instance:test.PQC_functional_test@70925b45]" name="getCustomerContacts" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.getCustomerInformation()[pri:45, instance:test.PQC_functional_test@70925b45]" name="getCustomerInformation" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.getCustomers()[pri:25, instance:test.PQC_functional_test@70925b45]" name="getCustomers" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.getIncomingGood_test()[pri:60, instance:test.PQC_functional_test@70925b45]" name="getIncomingGood_test" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.getKitPartDetails_test()[pri:75, instance:test.PQC_functional_test@70925b45]" name="getKitPartDetails_test" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.getLotDetails_test()[pri:65, instance:test.PQC_functional_test@70925b45]" name="getLotDetails_test" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.getPartInfo()[pri:50, instance:test.PQC_functional_test@70925b45]" name="getPartInfo" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.getRFQHeader()[pri:20, instance:test.PQC_functional_test@70925b45]" name="getRFQHeader" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.getRFQLineAlternates_test()[pri:80, instance:test.PQC_functional_test@70925b45]" name="getRFQLineAlternates_test" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.getRFQPartStockInfo()[pri:55, instance:test.PQC_functional_test@70925b45]" name="getRFQPartStockInfo" class="test.PQC_functional_test"/>
+      </group> <!-- processRFQ -->
+      <group name="createRFQ">
+        <method signature="PQC_functional_test.createCustomerRFQ()[pri:15, instance:test.PQC_functional_test@70925b45]" name="createCustomerRFQ" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.quickContactSearch()[pri:10, instance:test.PQC_functional_test@70925b45]" name="quickContactSearch" class="test.PQC_functional_test"/>
+      </group> <!-- createRFQ -->
       <group name="login">
-        <method signature="PQC_functional_test.login_pqc()[pri:1, instance:test.PQC_functional_test@8f4ea7c]" name="login_pqc" class="test.PQC_functional_test"/>
+        <method signature="PQC_functional_test.login_pqc()[pri:5, instance:test.PQC_functional_test@70925b45]" name="login_pqc" class="test.PQC_functional_test"/>
       </group> <!-- login -->
     </groups>
-    <test started-at="2023-12-04T15:40:54 NPT" name="Default test" finished-at="2023-12-04T15:41:20 NPT" duration-ms="25299">
+    <test started-at="2023-12-05T14:37:00 NPT" name="Default test" finished-at="2023-12-05T14:40:09 NPT" duration-ms="188636">
       <class name="test.PQC_functional_test">
-        <test-method is-config="true" signature="setup()[pri:0, instance:test.PQC_functional_test@8f4ea7c]" started-at="2023-12-04T15:40:54 NPT" name="setup" finished-at="2023-12-04T15:40:57 NPT" duration-ms="2773" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:37:00 NPT" name="setup" finished-at="2023-12-05T14:37:04 NPT" duration-ms="4323" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="login_pqc()[pri:1, instance:test.PQC_functional_test@8f4ea7c]" started-at="2023-12-04T15:40:57 NPT" name="login_pqc" finished-at="2023-12-04T15:41:16 NPT" duration-ms="18634" status="PASS">
+        <test-method signature="login_pqc()[pri:5, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:37:04 NPT" name="login_pqc" finished-at="2023-12-05T14:37:23 NPT" duration-ms="18484" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login_pqc -->
-        <test-method signature="editRfqHeader()[pri:12, instance:test.PQC_functional_test@8f4ea7c]" started-at="2023-12-04T15:41:16 NPT" name="editRfqHeader" finished-at="2023-12-04T15:41:19 NPT" duration-ms="3591" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-at org.testng.Assert.fail(Assert.java:99)
-at org.testng.Assert.failNotEquals(Assert.java:1037)
-at org.testng.Assert.assertTrue(Assert.java:45)
-at org.testng.Assert.assertTrue(Assert.java:55)
-at test.PQC_functional_test.editRfqHeader(PQC_functional_test.java:557)
-at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method signature="quickContactSearch()[pri:10, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:37:23 NPT" name="quickContactSearch" finished-at="2023-12-05T14:37:32 NPT" duration-ms="8873" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quickContactSearch -->
+        <test-method signature="createCustomerRFQ()[pri:15, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:37:32 NPT" name="createCustomerRFQ" finished-at="2023-12-05T14:38:01 NPT" duration-ms="29126" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createCustomerRFQ -->
+        <test-method signature="getRFQHeader()[pri:20, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:38:01 NPT" name="getRFQHeader" finished-at="2023-12-05T14:38:05 NPT" duration-ms="3725" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getRFQHeader -->
+        <test-method signature="getCustomers()[pri:25, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:38:05 NPT" name="getCustomers" finished-at="2023-12-05T14:38:11 NPT" duration-ms="6835" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCustomers -->
+        <test-method signature="getCustomerContacts()[pri:30, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:38:11 NPT" name="getCustomerContacts" finished-at="2023-12-05T14:38:18 NPT" duration-ms="6884" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCustomerContacts -->
+        <test-method signature="changeRfqOwner()[pri:35, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:38:18 NPT" name="changeRfqOwner" finished-at="2023-12-05T14:38:27 NPT" duration-ms="9047" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changeRfqOwner -->
+        <test-method signature="editRfqHeader()[pri:40, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:38:27 NPT" name="editRfqHeader" finished-at="2023-12-05T14:38:31 NPT" duration-ms="3597" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- editRfqHeader -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:test.PQC_functional_test@8f4ea7c]" started-at="2023-12-04T15:41:19 NPT" name="teardown" finished-at="2023-12-04T15:41:20 NPT" duration-ms="265" status="PASS">
+        <test-method signature="getCustomerInformation()[pri:45, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:38:31 NPT" name="getCustomerInformation" finished-at="2023-12-05T14:38:37 NPT" duration-ms="5628" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getCustomerInformation -->
+        <test-method signature="getPartInfo()[pri:50, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:38:37 NPT" name="getPartInfo" finished-at="2023-12-05T14:38:49 NPT" duration-ms="12826" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getPartInfo -->
+        <test-method signature="getRFQPartStockInfo()[pri:55, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:38:49 NPT" name="getRFQPartStockInfo" finished-at="2023-12-05T14:38:53 NPT" duration-ms="3459" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getRFQPartStockInfo -->
+        <test-method signature="getIncomingGood_test()[pri:60, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:38:53 NPT" name="getIncomingGood_test" finished-at="2023-12-05T14:38:58 NPT" duration-ms="4692" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getIncomingGood_test -->
+        <test-method signature="getLotDetails_test()[pri:65, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:38:58 NPT" name="getLotDetails_test" finished-at="2023-12-05T14:39:02 NPT" duration-ms="4749" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getLotDetails_test -->
+        <test-method signature="addRFQLine()[pri:70, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:39:02 NPT" name="addRFQLine" finished-at="2023-12-05T14:39:26 NPT" duration-ms="23410" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addRFQLine -->
+        <test-method signature="getKitPartDetails_test()[pri:75, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:39:26 NPT" name="getKitPartDetails_test" finished-at="2023-12-05T14:39:45 NPT" duration-ms="19562" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getKitPartDetails_test -->
+        <test-method signature="getRFQLineAlternates_test()[pri:80, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:39:45 NPT" name="getRFQLineAlternates_test" finished-at="2023-12-05T14:39:52 NPT" duration-ms="7174" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getRFQLineAlternates_test -->
+        <test-method signature="deleteRFQLines()[pri:85, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:39:52 NPT" name="deleteRFQLines" finished-at="2023-12-05T14:40:01 NPT" duration-ms="8914" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteRFQLines -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:test.PQC_functional_test@70925b45]" started-at="2023-12-05T14:40:01 NPT" name="teardown" finished-at="2023-12-05T14:40:09 NPT" duration-ms="7234" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

@@ -82,7 +82,7 @@ public class PQC_functional_test extends UtilBase {
 
 	// used to get the row count
 	WebElement table;
-	String tableDataRow = "ant-table-row ant-table-row-level-0";
+	String tableDataRow = "ant-table-row ant-table-row-level-0 primary-row";
 	String commentDataRow = "ant-table-row ant-table-row-level-0 comment-row";
 	/*
 	 * Process RFQ screen
@@ -155,7 +155,7 @@ public class PQC_functional_test extends UtilBase {
 	 Description	: Test quickContactSearch API
 	 --------------------------------------*/
 	
-//	@Test(priority = 10,  groups = "createRFQ")
+	@Test(priority = 10,  groups = "createRFQ")
 	public void quickContactSearch() {
 		try {
 			logger.info("START : quickContactSearch test ------------------------------");
@@ -214,7 +214,7 @@ public class PQC_functional_test extends UtilBase {
 	/*
 	 * create manual RFQ test
 	 */
-//	@Test(priority = 15,  groups = "createRFQ")
+	@Test(priority = 15,  groups = "createRFQ")
 	public void createCustomerRFQ() {
 		try {
 
@@ -296,7 +296,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-//	@Test(priority = 20,  groups = "processRFQ")
+	@Test(priority = 20,  groups = "processRFQ")
 	public void getRFQHeader() {
 
 		try {
@@ -362,7 +362,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-//	@Test(priority = 25,  groups = "processRFQ")
+	@Test(priority = 25,  groups = "processRFQ")
 	public void getCustomers() {
 		try {
 			test = extent.createTest("getCustomers_test");
@@ -413,7 +413,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-//	@Test(priority = 30,  groups = "processRFQ")
+	@Test(priority = 30,  groups = "processRFQ")
 	public void getCustomerContacts() {
 		try {
 			test = extent.createTest("getCustomerContacts_test");
@@ -465,7 +465,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-//	@Test(priority = 35,  groups = "processRFQ")
+	@Test(priority = 35,  groups = "processRFQ")
 	public void changeRfqOwner() {
 		try {
 			test = extent.createTest("changeRFQOwner_test");
@@ -509,6 +509,7 @@ public class PQC_functional_test extends UtilBase {
 				test.addScreenCaptureFromPath(capture("changeRFQOwner_test_failed"), "changeRFQOwner_test");
 				Assert.assertTrue(false);
 			}
+			Thread.sleep(2000);
 			logger.info("END : changeRFQOwner_test---------------------------------------");
 		} catch (Exception e) {
 			logger.severe("ERROR : changeRFQOwner_test ");
@@ -624,7 +625,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-//	@Test(priority = 45,  groups = "processRFQ")
+	@Test(priority = 45,  groups = "processRFQ")
 	public void getCustomerInformation() {
 		try {
 			test = extent.createTest("getCustomerInformation");
@@ -681,7 +682,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-//	@Test(priority = 50,  groups = "processRFQ")
+	@Test(priority = 50,  groups = "processRFQ")
 	public void getPartInfo() {
 		try {
 			test = extent.createTest("getPartInformation");
@@ -750,7 +751,7 @@ public class PQC_functional_test extends UtilBase {
 
 	}
 
-//	@Test(priority = 25,  groups = "processRFQ")
+	@Test(priority = 55,  groups = "processRFQ")
 	public void getRFQPartStockInfo() {
 		try {
 			test = extent.createTest("getRFQPartStockInfo");
@@ -793,7 +794,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-//	@Test(priority = 30,  groups = "processRFQ")
+	@Test(priority = 60,  groups = "processRFQ")
 	public void getIncomingGood_test() {
 		try {
 			test = extent.createTest("getIncomingGood_test");
@@ -832,7 +833,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-//	@Test(priority = 35,  groups = "processRFQ")
+	@Test(priority = 65,  groups = "processRFQ")
 	public void getLotDetails_test() {
 		try {
 			test = extent.createTest("getLotDetails_test");
@@ -871,13 +872,13 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-//	@Test(priority = 40,  groups = "processRFQ")
-	public void addPart_test() {
+	@Test(priority = 70,  groups = "processRFQ")
+	public void addRFQLine() {
 		try {
 			driver.navigate().refresh();
 
-			test = extent.createTest("addPart_test");
-			logger.info("START : addPart_test  ---------------------------------------");
+			test = extent.createTest("addRFQLine");
+			logger.info("START : addRFQLine  ---------------------------------------");
 			Thread.sleep(3000);
 //			Initialize variable with expected values
 			String addPartNumber_input = "E0052R16B26SZE";
@@ -909,7 +910,7 @@ public class PQC_functional_test extends UtilBase {
 			pqc_po.addLineReference_input().sendKeys(addLineRef_input);
 			Thread.sleep(3000);
 
-			test.addScreenCaptureFromPath(capture("addPart_input"), "add Part test");
+			test.addScreenCaptureFromPath(capture("addRFQLine_input"), "addRFQLine");
 //			Hit the API
 			pqc_po.addRFQLine_button().click();
 			Thread.sleep(8000);
@@ -927,25 +928,25 @@ public class PQC_functional_test extends UtilBase {
 				Thread.sleep(1000);
 
 				// pass
-				logger.info("SUCCESS : addPart_test test");
-				test.pass("addPart_test");
-				test.addScreenCaptureFromPath(capture("addPart_test_success"), "addPart_test ");
+				logger.info("SUCCESS : addRFQLine");
+				test.pass("addRFQLine");
+				test.addScreenCaptureFromPath(capture("addRFQLine_success"), "addRFQLine");
 
 				List<String> data = TableData.getTextFromTrElements(table, tableDataRow, 2);
 				System.out.println(data);
 
 			} else {
-				logger.info("ERROR : addPart_test ");
-				test.fail("addPart_test");
-				test.addScreenCaptureFromPath(capture("addPart_test_failed"), "addPart_test");
+				logger.info("ERROR : addRFQLine ");
+				test.fail("addRFQLine");
+				test.addScreenCaptureFromPath(capture("addRFQLine_failed"), "addRFQLine");
 				Assert.assertTrue(false);
 			}
-			logger.info("END : addPart_test---------------------------------------");
+			logger.info("END : addRFQLine ---------------------------------------");
 			Thread.sleep(3000);
 		} catch (Exception e) {
-			logger.severe("ERROR : addPart_test ");
-			test.fail("addPart_test");
-			test.addScreenCaptureFromPath(capture("addPart_test_failed"), "addPart_test");
+			logger.severe("ERROR : addRFQLine ");
+			test.fail("addRFQLine");
+			test.addScreenCaptureFromPath(capture("addRFQLine_failed"), "addRFQLine");
 			e.printStackTrace();
 			Assert.assertTrue(false);
 		}
@@ -979,7 +980,7 @@ public class PQC_functional_test extends UtilBase {
 		return tdTextList;
 	}
 
-//	@Test(priority = 45,  groups = "processRFQ")
+	@Test(priority = 75,  groups = "processRFQ")
 	public void getKitPartDetails_test() {
 		try {
 			test = extent.createTest("getKitPartDetails_test");
@@ -1043,7 +1044,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-//	@Test(priority = 50,  groups = "processRFQ")
+	@Test(priority = 80,  groups = "processRFQ")
 	public void getRFQLineAlternates_test() {
 		try {
 			test = extent.createTest("getRFQLineAlternates_test");
@@ -1098,7 +1099,7 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-//	@Test(priority = 55,  groups = "processRFQ")
+	@Test(priority = 85,  groups = "processRFQ")
 	public void deleteRFQLines() {
 		try {
 			test = extent.createTest("deleteRFQLines_test");
@@ -1206,7 +1207,7 @@ public class PQC_functional_test extends UtilBase {
 			String username = "yaman.maharjan@javra.com";
 			String password = "!wertyu$@AQW";
 			String to = "yaman.maharjan@javra.com";
-			String cc = "yaman.maharjan@javra.com";
+			String cc = "nishant.sah@javra.com";
 			String subject = "Automation Report";
 			String description = "This is automated report.";
 			String attachmentReport = System.getProperty("user.dir") + "/testReports/PQC_Fucntional_Test_Report.html";
@@ -1231,7 +1232,7 @@ public class PQC_functional_test extends UtilBase {
 	public void teardown() {
 		extent.flush();
 //		driver.close();
-//		emailReportAndLog();
+		emailReportAndLog();
 	}
 
 }
