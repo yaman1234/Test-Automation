@@ -122,9 +122,6 @@ public class PQC_functional_test extends UtilBase {
 			driver.get("http://" + pqc_baseurl);
 			Thread.sleep(5000);
 
-			driver.get("http://10.0.1.62:90/ProcessRFQ/1256303");
-			Thread.sleep(5000);
-
 //			Run the Test
 			boolean result = WebElementLib.doesElementExist(pqc_po.navbar_caseQueue());
 
@@ -835,7 +832,7 @@ public class PQC_functional_test extends UtilBase {
 	}
 
 	@Test(priority = 60, groups = "processRFQ")
-	public void getIncomingGood_test() {
+	public void getIncomingGood() {
 		try {
 			test = extent.createTest("getIncomingGood_test");
 			logger.info("START : getIncomingGood_test  ---------------------------------------");
@@ -874,7 +871,7 @@ public class PQC_functional_test extends UtilBase {
 	}
 
 	@Test(priority = 65, groups = "processRFQ")
-	public void getLotDetails_test() {
+	public void getLotDetails() {
 		try {
 			test = extent.createTest("getLotDetails_test");
 			logger.info("START : getLotDetails_test  ---------------------------------------");
@@ -930,8 +927,8 @@ public class PQC_functional_test extends UtilBase {
 			table = pqc_po.main_table();
 
 //		check the row count before add part
-			int tableDataRowCount = getRFQLines_test(table, tableDataRow);
-			int commentDataRowCount = getRFQLines_test(table, commentDataRow);
+			int tableDataRowCount = getRFQLines_count(table, tableDataRow);
+			int commentDataRowCount = getRFQLines_count(table, commentDataRow);
 			logger.info("Before Add Part: [RFQ row count " + tableDataRowCount + " , RFQ comment count: " + commentDataRowCount);
 
 //		Click to open add part modal
@@ -956,8 +953,8 @@ public class PQC_functional_test extends UtilBase {
 			Thread.sleep(8000);
 
 //			check the row count after add part
-			int tableDataRowCount_after = getRFQLines_test(table, tableDataRow);
-			int commentDataRowCount_after = getRFQLines_test(table, commentDataRow);
+			int tableDataRowCount_after = getRFQLines_count(table, tableDataRow);
+			int commentDataRowCount_after = getRFQLines_count(table, commentDataRow);
 			logger.info("After Add Part: [RFQ row count " + tableDataRowCount_after + " , RFQ comment count: " + commentDataRowCount_after);
 
 //			Run the Test
@@ -992,18 +989,18 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
-	public String getRFQLineStatus(String row) {
-		WebElement element = driver.findElement(By.xpath("//*[@id='root']/div/div/div/main/div/div[4]/div[3]/div/div/div/div/div/table/tbody/tr[" + row + "]/td[13]"));
+	public String getRFQLineStatus(int row) {
+		WebElement element = driver.findElement(By.xpath("//tr[@class='ant-table-row ant-table-row-level-0 primary-row'][" + row + "]/td[13]"));
 		String status = element.getText();
 		return status;
 	}
 
-	public int getRFQLines_test(WebElement table, String className) {
+	public int getRFQLines_count(WebElement table, String className) {
 		int rowCount = TableData.getTotalTrElementsWithClass(table, className);
 		return rowCount;
 	}
 
-	public List<String> getTextFromRow(WebElement table, String className, int row) {
+	public List<String> getRFQLines_text(WebElement table, String className, int row) {
 		List<String> tdTextList = new ArrayList<>();
 
 		String xpathExpression = ".//tbody//tr[@class='" + className + "'][" + row + "]";
@@ -1021,7 +1018,7 @@ public class PQC_functional_test extends UtilBase {
 	}
 
 	@Test(priority = 75, groups = "processRFQ")
-	public void getKitPartDetails_test() {
+	public void getKitPartDetails() {
 		try {
 			test = extent.createTest("getKitPartDetails_test");
 			logger.info("START : getKitPartDetails_test  ---------------------------------------");
@@ -1085,19 +1082,19 @@ public class PQC_functional_test extends UtilBase {
 	}
 
 	@Test(priority = 80, groups = "processRFQ")
-	public void getRFQLineAlternates_test() {
+	public void getRFQLineAlternates() {
 		try {
 			test = extent.createTest("getRFQLineAlternates_test");
 			logger.info("START : getRFQLineAlternates_test  ---------------------------------------");
 //		Initialize variable with expected values
 			table = pqc_po.main_table();
 //			check the row count before add part
-			int tableDataRowCount = getRFQLines_test(table, tableDataRow);
-			int commentDataRowCount = getRFQLines_test(table, commentDataRow);
+			int tableDataRowCount = getRFQLines_count(table, tableDataRow);
+			int commentDataRowCount = getRFQLines_count(table, commentDataRow);
 			logger.info("Before get RFQLineAlternates: [RFQ row count " + tableDataRowCount + " , RFQ comment count: " + commentDataRowCount);
 
 			for (int i = 1; i <= tableDataRowCount; i++) {
-				List<String> rowText = getTextFromRow(table, tableDataRow, i);
+				List<String> rowText = getRFQLines_text(table, tableDataRow, i);
 				logger.info(rowText.toString());
 			}
 //		Hit the API
@@ -1107,12 +1104,12 @@ public class PQC_functional_test extends UtilBase {
 			Thread.sleep(2000);
 //		Initialize variable with actual values
 //			check the row count after get RFQ Line Alternates
-			int tableDataRowCount_after = getRFQLines_test(table, tableDataRow);
-			int commentDataRowCount_after = getRFQLines_test(table, commentDataRow);
+			int tableDataRowCount_after = getRFQLines_count(table, tableDataRow);
+			int commentDataRowCount_after = getRFQLines_count(table, commentDataRow);
 			logger.info("After get RFQ Line Alternates : [RFQ row count " + tableDataRowCount_after + " , RFQ comment count: " + commentDataRowCount_after);
 
 			for (int i = 1; i <= tableDataRowCount_after; i++) {
-				List<String> rowText = getTextFromRow(table, tableDataRow, i);
+				List<String> rowText = getRFQLines_text(table, tableDataRow, i);
 				logger.info(rowText.toString());
 			}
 //		Run the Test
@@ -1147,11 +1144,11 @@ public class PQC_functional_test extends UtilBase {
 //			Initialize variable with expected values
 			table = pqc_po.main_table();
 //			check the row count before add part
-			int tableDataRowCount = getRFQLines_test(table, tableDataRow);
-			int commentDataRowCount = getRFQLines_test(table, commentDataRow);
+			int tableDataRowCount = getRFQLines_count(table, tableDataRow);
+			int commentDataRowCount = getRFQLines_count(table, commentDataRow);
 			logger.info("Before Delete: [RFQ row count " + tableDataRowCount + " , RFQ comment count: " + commentDataRowCount);
 			for (int i = 1; i <= tableDataRowCount; i++) {
-				List<String> rowText = getTextFromRow(table, tableDataRow, i);
+				List<String> rowText = getRFQLines_text(table, tableDataRow, i);
 				logger.info(rowText.toString());
 			}
 //			Hit the API
@@ -1165,12 +1162,12 @@ public class PQC_functional_test extends UtilBase {
 			Thread.sleep(5000);
 
 //			check the row count after Delete RFQ Line
-			int tableDataRowCount_after = getRFQLines_test(table, tableDataRow);
-			int commentDataRowCount_after = getRFQLines_test(table, commentDataRow);
+			int tableDataRowCount_after = getRFQLines_count(table, tableDataRow);
+			int commentDataRowCount_after = getRFQLines_count(table, commentDataRow);
 			logger.info("After Delete RFQ Line : [RFQ row count " + tableDataRowCount_after + " , RFQ comment count: " + commentDataRowCount_after);
 
 			for (int i = 1; i <= tableDataRowCount_after; i++) {
-				List<String> rowText = getTextFromRow(table, tableDataRow, i);
+				List<String> rowText = getRFQLines_text(table, tableDataRow, i);
 				logger.info(rowText.toString());
 			}
 
@@ -1196,6 +1193,276 @@ public class PQC_functional_test extends UtilBase {
 		}
 	}
 
+	@Test(priority = 90)
+	public void getPartPricingDetails() throws InterruptedException {
+
+//		add part 10-40
+		try {
+			driver.navigate().refresh();
+
+			test = extent.createTest("addRFQLine");
+			logger.info("START : addRFQLine  ---------------------------------------");
+			Thread.sleep(3000);
+//			Initialize variable with expected values
+			String addPartNumber_input = "10-40";
+			String addPartDesc_input = "Kit Test";
+			String addQty_input = "10";
+			String addUom_input = "EA";
+			String addLineRef_input = "aut";
+
+			table = pqc_po.main_table();
+
+//		check the row count before add part
+			int tableDataRowCount = getRFQLines_count(table, tableDataRow);
+			int commentDataRowCount = getRFQLines_count(table, commentDataRow);
+			logger.info("Before Add Part: [RFQ row count " + tableDataRowCount + " , RFQ comment count: " + commentDataRowCount);
+
+//		Click to open add part modal
+			pqc_po.addPart_button().click();
+			Thread.sleep(1000);
+
+//			get the header of modal
+			logger.info("Add Part modal Header: " + pqc_po.antModalContent_header().getText());
+
+//		send Input 
+			pqc_po.addPartNumber_input().sendKeys(addPartNumber_input);
+			pqc_po.addPartDescription_input().sendKeys(addPartDesc_input);
+			pqc_po.addQty_input().sendKeys(addQty_input);
+			pqc_po.addUOM_dropdown().sendKeys(addUom_input);
+			pqc_po.addUOM_dropdown().sendKeys(Keys.ENTER);
+			pqc_po.addLineReference_input().sendKeys(addLineRef_input);
+			Thread.sleep(3000);
+
+			test.addScreenCaptureFromPath(capture("addRFQLine_input"), "addRFQLine");
+//			Hit the API
+			pqc_po.addRFQLine_button().click();
+			Thread.sleep(8000);
+
+//			check the row count after add part
+			int tableDataRowCount_after = getRFQLines_count(table, tableDataRow);
+			int commentDataRowCount_after = getRFQLines_count(table, commentDataRow);
+			logger.info("After Add Part: [RFQ row count " + tableDataRowCount_after + " , RFQ comment count: " + commentDataRowCount_after);
+
+//			Run the Test
+			if (tableDataRowCount_after > tableDataRowCount) {
+
+//			 	Use JavaScriptExecutor to scroll the element into view
+				jsDriver.executeScript("arguments[0].scrollIntoView({block: 'center'});", pqc_po.main_table());
+				Thread.sleep(1000);
+
+				// pass
+				logger.info("SUCCESS : addRFQLine");
+				test.pass("addRFQLine");
+				test.addScreenCaptureFromPath(capture("addRFQLine_success"), "addRFQLine");
+
+				List<String> data = TableData.getTextFromTrElements(table, tableDataRow, 2);
+				System.out.println(data);
+
+			} else {
+				logger.info("ERROR : addRFQLine ");
+				test.fail("addRFQLine");
+				test.addScreenCaptureFromPath(capture("addRFQLine_failed"), "addRFQLine");
+				Assert.assertTrue(false);
+			}
+			logger.info("END : addRFQLine ---------------------------------------");
+			Thread.sleep(3000);
+		} catch (Exception e) {
+			logger.severe("ERROR : addRFQLine ");
+			test.fail("addRFQLine");
+			test.addScreenCaptureFromPath(capture("addRFQLine_failed"), "addRFQLine");
+			e.printStackTrace();
+			Assert.assertTrue(false);
+		}
+
+		/*
+		 * 
+		 */
+		try {
+			test = extent.createTest("getPartPricingDetails");
+			logger.info("START : getPartPricingDetails  ---------------------------------------");
+			int row = 2;
+//			scroll into view
+			jsDriver.executeScript("arguments[0].scrollIntoView({block: 'center'});", pqc_po.lineAction_selectRow(row));
+
+//			check the status
+			String status = getRFQLineStatus(row);
+			logger.info("RFQ Line status for row  " + row + " : " + status);
+
+//			validate status
+			if (status.contains("Purchase price missing")) {
+
+//			click the checkbox
+				pqc_po.lineAction_selectRow(row).click();
+//				click send quote button
+				pqc_po.sendQuote_button().click();
+
+//				verify the title of modal
+				String header = pqc_po.priceRequestModal_header().getText();
+				System.out.println(header);
+				String expectedHeader = "PRICE REQUEST";
+
+//				Run the Test
+				if (header.equals(expectedHeader)) {
+					test.pass("getPartPricingDetails");
+					test.addScreenCaptureFromPath(capture("getPartPricingDetails_success"), "getPartPricingDetails ");
+				}
+			}
+
+			else {
+				logger.info("ERROR : getPartPricingDetails ");
+				test.fail("getPartPricingDetails");
+				test.addScreenCaptureFromPath(capture("getPartPricingDetails_failed"), "getPartPricingDetails");
+				Assert.assertTrue(false);
+			}
+			logger.info("END : getPartPricingDetails---------------------------------------");
+		} catch (Exception e) {
+			logger.severe("ERROR : getPartPricingDetails ");
+			test.fail("getPartPricingDetails");
+			test.addScreenCaptureFromPath(capture("getPartPricingDetails_failed"), "getPartPricingDetails");
+			e.printStackTrace();
+			Assert.assertTrue(false);
+		}
+
+	}
+
+	@Test(priority = 95)
+	public void getPriceRequestInfo() {
+
+		try {
+			test = extent.createTest("getPriceRequestInfo");
+			logger.info("START : getPriceRequestInfo  ---------------------------------------");
+//				Initialize variable with expected values
+			String expectedHeader = "PRICE REQUEST DETAIL";
+//				Hit the API
+			pqc_po.getPriceRequestInfo_link().click();
+//				Initialize variable with actual values
+
+			String header = pqc_po.priceRequestDetailModal_header().getText();
+			logger.info("Header : " + header);
+//				Run the Test
+			if (header.equals(expectedHeader)) {
+				logger.info("SUCCESS : getPriceRequestInfo");
+				test.pass("getPriceRequestInfo");
+				test.addScreenCaptureFromPath(capture("getPriceRequestInfo_success"), "getPriceRequestInfo ");
+			} else {
+				logger.info("ERROR : getPriceRequestInfo ");
+				test.fail("getPriceRequestInfo");
+				test.addScreenCaptureFromPath(capture("getPriceRequestInfo_failed"), "getPriceRequestInfo");
+				Assert.assertTrue(false);
+			}
+//			cleanup
+//			close the pricerequestdetails modal
+			pqc_po.priceRequestDetalModal_close_button().click();
+			
+			logger.info("END : getPriceRequestInfo---------------------------------------");
+		} catch (Exception e) {
+			logger.severe("ERROR : getPriceRequestInfo");
+			test.fail("getPriceRequestInfo");
+			test.addScreenCaptureFromPath(capture("getPriceRequestInfo_failed"), "getPriceRequestInfo");
+			e.printStackTrace();
+			Assert.assertTrue(false);
+		}
+
+	}
+
+	
+	@Test (priority = 100)
+public void createProcessRelay() {
+	try {
+		test = extent.createTest("createProcessRelay");
+		logger.info("START : createProcessRelay  ---------------------------------------");
+//			Initialize variable with expected values
+		int row = 2;
+		String expectedStatus  ="Purchase Price Requested";
+//			Hit the API
+
+		pqc_po.priceRequestModal_proceedYes_button().click();
+		pqc_po.priceRequestModal_ok_button().click();
+		Thread.sleep(10000);
+		
+		
+//		close the send quote modal
+		pqc_po.sendQuoteModal_close_button().click();
+		driver.navigate().refresh();
+		Thread.sleep(2000);
+		
+		
+//		Initialize variable with actual values
+		String status = getRFQLineStatus(row);
+		System.out.println(status);
+		
+//			Run the Test
+		if (status.contains(expectedStatus)) {
+			logger.info("SUCCESS : createProcessRelay");
+			test.pass("createProcessRelay");
+			test.addScreenCaptureFromPath(capture("createProcessRelay_success"), "createProcessRelay");
+		} else {
+			logger.info("ERROR : createProcessRelay ");
+			test.fail("createProcessRelay");
+			test.addScreenCaptureFromPath(capture("createProcessRelay_failed"), "createProcessRelay");
+			Assert.assertTrue(false);
+		}
+		logger.info("END : createProcessRelay---------------------------------------");
+	} catch (Exception e) {
+		logger.severe("ERROR : createProcessRelay ");
+		test.fail("createProcessRelay");
+		test.addScreenCaptureFromPath(capture("createProcessRelay_failed"), "createProcessRelay");
+		e.printStackTrace();
+		Assert.assertTrue(false);
+	}
+}
+	
+	
+	@Test (priority = 105)
+public void getPurchasePriceRequestInfo() {
+	try {
+		test = extent.createTest("getPurchasePriceRequestInfo");
+		logger.info("START : getPurchasePriceRequestInfo  ---------------------------------------");
+//			Initialize variable with expected values
+		String expectedHeader = "Status Change";
+//			Hit the API
+		pqc_po.statusChange_link(2).click();
+		Thread.sleep(2000);
+//			Initialize variable with actual values
+		String actualHeader = pqc_po.statusChange_popover_header().getText();
+		logger.info("Header: " +actualHeader);
+//			Run the Test
+		if (actualHeader.equals(expectedHeader)) {
+			
+			pqc_po.statusChange_viewDetails_button().click();
+			Thread.sleep(3000);
+			
+			String header_expected = "PRICE REQUESTED";
+			String header_actual = pqc_po.antModalContent_header().getText();
+			
+			if(header_actual.equals(header_expected)) {
+				logger.info("SUCCESS : getPurchasePriceRequestInfo");
+				test.pass("getPurchasePriceRequestInfo");
+				test.addScreenCaptureFromPath(capture("methodName_test_success"), "getPurchasePriceRequestInfo ");
+			}
+		
+		} else {
+			logger.info("ERROR : getPurchasePriceRequestInfo ");
+			test.fail("getPurchasePriceRequestInfo");
+			test.addScreenCaptureFromPath(capture("getPurchasePriceRequestInfo_failed"), "getPurchasePriceRequestInfo");
+			Assert.assertTrue(false);
+		}
+		
+//		clean upd
+		pqc_po.antModalContent_close_button().click();
+		
+		logger.info("END : getPurchasePriceRequestInfo---------------------------------------");
+	} catch (Exception e) {
+		logger.severe("ERROR : getPurchasePriceRequestInfo ");
+		test.fail("getPurchasePriceRequestInfo");
+		test.addScreenCaptureFromPath(capture("getPurchasePriceRequestInfo_failed"), "getPurchasePriceRequestInfo");
+		e.printStackTrace();
+		Assert.assertTrue(false);
+	}
+}
+
+	
+	
 //		@Test (priority = 100)
 	public void methodName_test() {
 		try {

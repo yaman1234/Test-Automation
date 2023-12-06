@@ -1,5 +1,6 @@
 package pageObjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import utilities.WebElementLib;
@@ -208,14 +209,26 @@ public class PQC_pageObjects {
 	}
 
 	public WebElement sendQuote_button() {
-		return WebElementLib.findMyElement("xpath", "//*[@id='root']/div/div/div/main/div/div[4]/div[1]/div[2]/button[2]");
+		return WebElementLib.findMyElement("xpath", "//div[@class='process-rfq-actions sticky-content']/div[2]/button/span[text()='Send Quote']");
 	}
 
 // click to	open the add part modal
 	public WebElement addPart_button() {
-		return WebElementLib.findMyElement("xpath", "//*[@id='root']/div/div/div/main/div/div[4]/div[2]/div[1]/button[1]");
+		return WebElementLib.findMyElement("xpath", "//div[@class='process-rfq-actions sticky-content']/div[1]/button/span[text()='Add Part']");
 	}
 
+	
+		public WebElement cancel_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='process-rfq-actions sticky-content']/div[1]/button/span[text()='Cancel']");
+	}
+		
+		public WebElement reprocess_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='process-rfq-actions sticky-content']/div[1]/button/span[text()='Reprocess']");
+	}
+		
+		public WebElement preview_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='process-rfq-actions sticky-content']/div[2]/button/span[text()='Preview']");
+	}
 	/*
 	 * 
 	 */
@@ -607,6 +620,10 @@ public class PQC_pageObjects {
 				"//div[@class='ant-table-wrapper process-rfq-table']/div/div/div/div/div/table/tbody/tr[@class='ant-table-row ant-table-row-level-0 primary-row'][" + row
 						+ "]/td[2]/div/span[@title='Alternatives']");
 	}
+	
+	public WebElement lineAction_selectRow(int row) {
+		return WebElementLib.findMyElement("xpath","//tr[@class='ant-table-row ant-table-row-level-0 primary-row']["+row+"]/td[1]/label/span/input");
+	}
 	/*
 	 * end -- RFQ Line Actions Col
 	 */
@@ -671,6 +688,76 @@ public class PQC_pageObjects {
 	 */
 	
 	/*
+	 * start -- PRICE REQUEST modal, PRICE REQUEST DETAIL modal
+	 */
+	
+	
+	public WebElement getPriceRequestInfo_link() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']/div[2]/div/div/div/div/div/div[2]/table/tbody/tr[3]/td/div[3]/a");
+	}
+	
+	
+	
+	public WebElement priceRequestDetailModal_header() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal add-part-modal']/div[@class='ant-modal-content']/div[@class='ant-modal-header']");
+	}
+	
+	public WebElement priceRequestDetalModal_close_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal add-part-modal']/div[@class='ant-modal-content']/button");
+	}
+	
+	
+	
+	
+	
+	public WebElement priceRequestModal() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal price-request-modal']");
+	}
+	
+	
+	public WebElement priceRequestModal_ok_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal price-request-modal']/div[@class='ant-modal-content']/div[@class='ant-modal-footer']/button[@title='Ok']");
+	}
+	
+	
+	
+	
+	public WebElement priceRequestModal_header() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal price-request-modal']/div[@class='ant-modal-content']/div[@class='ant-modal-header']");
+	}
+	//div[@class='ant-modal-content']/div[2]/div/div/div/div/div/div[2]/table/tbody/tr[3]/td/div[2]
+	
+	public WebElement priceRequestModal_comment() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']/div[2]/div/div/div/div/div/div[2]/table/tbody/tr[3]/td/div[1]/textarea");
+	}
+	
+	
+	public WebElement priceRequestModal_proceedYes_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']/div[2]/div/div/div/div/div/div[2]/table/tbody/tr[3]/td/div[2]/button[1]");
+	}
+
+	
+	public WebElement priceRequestModal_proceedNo_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']/div[2]/div/div/div/div/div/div[2]/table/tbody/tr[3]/td/div[2]/button[2]");
+	}
+	
+	public WebElement priceRequestModal_notifyMe_checkbox() {
+		return WebElementLib.findMyElement("xpath", "");
+	}
+
+	
+	public WebElement priceRequestModal_newRequest_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal-content']/div[2]/div/div/div/div/div/div[2]/table/tbody/tr[3]/td/div[3]/label/span[1]/input");
+	}
+	/*
+	 * end -- price-request-modal
+	 */
+	
+	
+	
+	
+	
+	/*
 	 * start -- Edit Request Details
 	 */
 	public WebElement editRFQ_button() {
@@ -687,9 +774,6 @@ public class PQC_pageObjects {
 		return WebElementLib.findMyElement("xpath", "//*[@id='crhcustref']");
 	}
 	
-	
-	
-	
 	/*
 	 * end -- Edit Request Details
 	 */
@@ -697,4 +781,54 @@ public class PQC_pageObjects {
 	/*
 	 * 
 	 */
+	
+	/*
+	 * start -- Send quote to customer
+	 */
+	
+	
+	public WebElement sendQuoteModal() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal send-quote-modal']");
+	}
+	
+	public WebElement sendQuoteModal_header() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal send-quote-modal']/div/div[@class='ant-modal-header']");
+	}
+	
+	
+	public WebElement sendQuoteModal_close_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal send-quote-modal']/div/button[@class='ant-modal-close']");
+	}
+	
+	public WebElement sendQuoteModal_sendQuote_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal send-quote-modal']/div/div[@class='ant-modal-footer']/button[@title='Send Quote Document to Customer']");
+	}
+	
+	public WebElement sendQuoteModal_previewQuote_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-modal send-quote-modal']/div/div[@class='ant-modal-footer']/button[@title='Preview Customer Quote Document']");
+	}
+	
+	
+	
+	/*
+	 * end -- Send quote to customer
+	 */
+	
+	
+	
+	public WebElement statusChange_link(int row) {
+		return WebElementLib.findMyElement("xpath", "//tr[@class='ant-table-row ant-table-row-level-0 primary-row']["+row+"]/td[13]/div/a");
+	}
+	
+	public WebElement statusChange_popover_header() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='ant-popover-content']/div[2]/div[@class='ant-popover-title']");
+	}
+	
+	
+	public WebElement statusChange_viewDetails_button() {
+		return WebElementLib.findMyElement("xpath", "//div[@class='status-change-popover']/div[@class='action-section']/button[@title='View Details']");
+	}
+	
+	
+	
 }
